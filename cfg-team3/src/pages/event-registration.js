@@ -4,7 +4,7 @@ import { useState } from "react";
 import Button from "../components/button";
 import Event from "../components/event";
 import { firestore } from "../firebase"; // Import Firestore instance
-import { doc, setDoc, updateDoc, increment } from "@firebase/firestore"; 
+import { doc, setDoc, updateDoc, increment } from "@firebase/firestore";
 
 export default function EventRegistration() {
   const location = useLocation();
@@ -15,6 +15,8 @@ export default function EventRegistration() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [age, setAge] = useState("");
+
+  const [submitted, setSubmitted] = useState(false);
 
   // Firestore document creation
   const handleSubmit = async (e) => {
@@ -29,12 +31,24 @@ export default function EventRegistration() {
         age,
       });
 
-      await setDoc(doc(firestore, event.name, event.name), {
-        count: increment(1), // Increment the count field or set it if it doesn't exist
-    }, { merge: true });
+      await setDoc(
+        doc(firestore, event.name, event.name),
+        {
+          count: increment(1), // Increment the count field or set it if it doesn't exist
+        },
+        { merge: true }
+      );
 
+      console.log(
+        `Document for event ${event.name} and email ${email} successfully written!`
+      );
 
-      console.log(`Document for event ${event.name} and email ${email} successfully written!`);
+      setSubmitted(true);
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setPhone("");
+      setAge("");
     } catch (error) {
       console.error("Error writing document: ", error);
     }
@@ -98,12 +112,15 @@ export default function EventRegistration() {
               type="text"
               id="age"
               name="age"
-              placeholder="Patient Age"
+              placeholder="Age"
               value={age}
               onChange={handleInputChange(setAge)}
             />
             <input type="hidden" id="idx" value={event.id || ""} />
             <div className="text-white">
+              {submitted && (
+                <p className="text-green-500">Form submitted successfully!</p>
+              )}
               <Button
                 text="Submit"
                 size="xs"
