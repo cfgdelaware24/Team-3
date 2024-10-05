@@ -51,9 +51,9 @@ function Contact() {
             value={email} 
             onChange={handleInputChange(setEmail)} 
           />
-          <input 
+          <textarea
             placeholder="Message" 
-            className="message-input mb-4 w-full p-3 border border-gray-300" 
+            className="message-input mb-4 w-full p-3 border border-gray-300 h-32 resize-none" 
             value={message} 
             onChange={handleInputChange(setMessage)} 
           />
