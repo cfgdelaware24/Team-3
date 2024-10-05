@@ -425,7 +425,7 @@ function About() {
       {/* Card views for available press */}
       <div>
         <h2 className="text-1xl font-semibold py-4 text-center">Articles</h2>
-        <div id="articleCards">
+        <div className="articleCards">
           {articles.map((article, index) => (
             <div>
               <ArticleCard key={index} article={article} />
