@@ -1,5 +1,6 @@
 import Event from "../components/event";
 import Navbar from "../components/navbar";
+import MyIcon from "../images/usericon.svg";
 
 export default function EventDetail() {
   const RegisteredEvents = [
@@ -20,6 +21,15 @@ export default function EventDetail() {
       name: "Tower Hill High School",
       location: "2813 W 17th St, Wilmington, DE 19806",
       sponsor: "Chase",
+      dateTime: "11/14/2024 5:00PM",
+      volunteersCount: 5,
+      ekg: 5,
+    },
+    {
+      id: "asdf",
+      name: "Deleware State High School",
+      location: "2813 W 17th St, Wilmington, DE 19806",
+      sponsor: "Team 3",
       dateTime: "11/14/2024 5:00PM",
       volunteersCount: 5,
       ekg: 5,
