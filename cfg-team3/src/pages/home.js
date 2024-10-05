@@ -20,7 +20,7 @@ export default function home() {
               athletes.
             </p>
             <p className="text-5xl">Save a life.</p>
-            <div className="button-container flex flex-col max-w-xs text-xl">
+            <div className="button-container flex flex-col max-w-xs text-xl gap-5">
               <Link to="/events">
                 <Button text="Register for an Event" size="md" color="red" />
               </Link>
