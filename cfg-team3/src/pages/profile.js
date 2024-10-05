@@ -30,8 +30,8 @@ export default function EventDetail() {
     <>
       <Navbar />
       <div className="bg-slate-100">
-        <div className="max-w-screen-md mx-auto pb-[200px] flex">
-          <div className="w-1/4 p-4">
+        <div className="max-w-screen-md mx-auto pb-[200px] flex flex-col md:flex-row">
+          <div className="w-full md:w-1/4 p-4">
             <div className="bg-white p-4 rounded-lg shadow-md">
               <img
                 src="https://via.placeholder.com/150"
@@ -46,7 +46,7 @@ export default function EventDetail() {
               </div>
             </div>
           </div>
-          <div className="w-3/4 p-4">
+          <div className="w-full md:w-3/4 p-4">
             <div className="text-3xl font-semibold py-4">
               Hi John Doe! Here are your events:
             </div>
