@@ -1,32 +1,36 @@
 "use client";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { useState } from "react";
+import logoImage from "../images/HeartintheGameLogo.png";
+import burgerSVG from "../images/burger-menu.svg";
 
 export default function Navbar() {
   const [burger, setBurger] = useState(false);
 
   const handleBurger = () => {
-    setBurger(!burger);
-  };
+    setBurger(prev => !prev);
+};
+
 
   const navItems = [
-    { id: 1, text: "Home", path: "/" },
-    { id: 2, text: "About", path: "/about" },
-    { id: 3, text: "Events", path: "/events" },
-    { id: 4, text: "Contact", path: "/contact" },
-    { id: 5, text: "Profile", path: "/profile" },
+    { id: 1, text: "About", path: "/about" },
+    { id: 2, text: "Events", path: "/events" },
+    { id: 3, text: "Contact", path: "/contact" },
+    { id: 4, text: "Profile", path: "/profile" },
+    { id: 5, text: "Donate", path: "/donate" },
+   
   ];
 
   return (
     <nav>
       <div className="relative flex items-center justify-between px-12 py-4 bg-white border-b border-grey">
         {/* Desktop */}
-        <Link href="/">
+        <Link to="/">
           <img
             id="heart-in-the-game-logo"
             priority
-            src={"/images/HeartintheGameLogo.png"}
+            src={logoImage}
             width="100"
             height="100"
             alt="Heart in the Game Logo"
@@ -35,48 +39,45 @@ export default function Navbar() {
 
         <ul className="hidden md:flex">
           {navItems.map((item) => (
-            <Link
-              key={item.id}
-              className="p-3 rounded-md hover:bg-teal hover:text-white mx-2 cursor-pointer duration-300"
-              href={item.path}
-            >
-              {item.text}
-            </Link>
+            <li key={item.id}>
+              <Link
+                className="p-3 rounded-md hover:bg-rose-300 hover:scale-125 mx-2 cursor-pointer duration-300"
+                to={item.path}
+              >
+                {item.text}
+              </Link>
+            </li>
           ))}
         </ul>
 
-        {/* Mobile */}
-        <div onClick={handleBurger} className="block md:hidden">
-          {burger ? (
-            <img
-              src={"/images/x.svg"}
-              width="20"
-              height="20"
-              alt="burger-menu-close"
-            />
-          ) : (
-            <img
-              src={"/images/burger-menu.svg"}
-              width="20"
-              height="20"
-              alt="burger-menu-open"
-            />
-          )}
+         {/* Mobile Burger Menu */}
+         <div onClick={handleBurger} className="block md:hidden">
+          <img
+            src={burgerSVG}
+            width="20"
+            height="20"
+            alt={burger ? "Close menu" : "Open menu"}
+          />
         </div>
       </div>
-      <div className={burger ? "burger is-open" : "burger"}>
-        <ul className={"md:hidden overflow-hidden flex flex-col bg-white"}>
-          {navItems.map((item) => (
-            <Link
-              key={item.id}
-              className="p-3 hover:bg-teal hover:text-white border-b border-grey cursor-pointer"
-              href={item.path}
-            >
-              {item.text}
-            </Link>
-          ))}
-        </ul>
-      </div>
+
+      {/* Mobile Menu */}
+      {burger && (
+  <div className="md:hidden overflow-hidden flex flex-col bg-white">
+    <ul className="flex flex-col items-center w-full"> {/* Centering items */}
+      {navItems.map((item) => (
+        <li key={item.id} className="w-full text-center"> {/* Full width and center text */}
+          <Link
+            className="p-3 rounded-md hover:bg-teal flex items-center justify-center cursor-pointer duration-300 w-full" 
+            to={item.path}
+          >
+            {item.text}
+          </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </nav>
   );
 }

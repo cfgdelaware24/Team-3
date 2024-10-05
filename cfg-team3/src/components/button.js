@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function Button(props) {
   const color = {
     red: "bg-rose-600 hover:bg-rose-400",
-    // black: "bg-green hover:bg-lightgreen",
+    black: "bg-transparent border-2 border-rose-600 hover:border-rose-400",
   };
 
   const size = {
@@ -29,7 +29,7 @@ export default function Button(props) {
       >
         <button
           className={
-            "px-8 py-3 w-full border-none text-white text-xl font-semibold" +
+            "px-3 py-3 w-full border-none text-xl font-semibold" +
             size[props.size]
           }
         >
