@@ -19,7 +19,7 @@ export default function Event({ event }) {
         <div className="text-right flex flex-col items-end">
           <div className="font-light text-3xl">{event.dateTime}</div>
           <div className="font-light text-lg">{event.phone}</div>
-          <Link to="/event-registration">
+          <Link to="/event-registration" state={event}>
             <Button text="Register" size="xs" color="red" />
           </Link>
         </div>
