@@ -21,7 +21,7 @@ export default function EventDetail() {
           </div>
           <div className="flex flex-col flex-wrap justify-center">
             <Event event={firstEvent} status = "registered" />
-            <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded">
+            <button className="mt-4 px-4 py-2 bg-green-500 text-white rounded">
               Completed
             </button>
           </div>
