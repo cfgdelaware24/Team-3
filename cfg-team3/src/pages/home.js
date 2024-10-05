@@ -1,11 +1,11 @@
 import React from "react";
 import lifelineIcon from "../images/lifelineIcon.svg";
-import HomeBtn from "../components/homeBtn";
 import SchoolImg from "../images/schoolExample.svg";
 import Navbar from "../components/navbar";
 import { Link } from "react-router-dom";
 import StudentImg from "../images/zachExample.svg";
 import Button from "../components/button";
+import Mailing from "../components/mailing";
 
 export default function home() {
   return (
@@ -92,6 +92,9 @@ export default function home() {
             <Button text="View More Stories" size="lg" color="red" />
           </Link>
         </div>
+      </div>
+      <div className="w-full section flex justify-center">
+        <Mailing />
       </div>
     </>
   );
