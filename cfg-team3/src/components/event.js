@@ -22,7 +22,7 @@ export default function Event({ event, status }) {
           </div>
           <div className="font-light text-lg">{event.phone}</div>
           {status === "not-registered" && (
-            <Link to="/event-registration" state={event}>
+            <Link className="text-white" to="/event-registration" state={event}>
               <Button text="Register" size="xs" color="red" />
             </Link>
           )}

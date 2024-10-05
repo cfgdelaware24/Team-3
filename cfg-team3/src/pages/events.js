@@ -98,12 +98,14 @@ export default function Events() {
               value={location}
               onChange={handleInputChange(setLocation)}
             />
-            <Button
-              text="Submit"
-              size="xs"
-              color="red"
-              disabled={!isFormValid} // Disable if form is not valid
-            />
+            <div className="text-white">
+              <Button
+                text="Submit"
+                size="xs"
+                color="red"
+                disabled={!isFormValid} // Disable if form is not valid
+              />
+            </div>
           </form>
         </div>
       </div>

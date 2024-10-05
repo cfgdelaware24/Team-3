@@ -29,8 +29,12 @@ export default function EventRegistration() {
       <Navbar />
       <div className="bg-slate-100 bg-slate-100">
         <div className="max-w-screen-md mx-auto px-4 pt-4 pb-[200px]">
-          <Event event={event} status="in-progress"/>
-          <form className="flex flex-col gap-4 mt-8" action="event" method="post">
+          <Event event={event} status="in-progress" />
+          <form
+            className="flex flex-col gap-4 mt-8"
+            action="event"
+            method="post"
+          >
             <div className="flex gap-4 sm:flex-row flex-col">
               <input
                 className="p-3 w-full border border-gray-300 rounded"
@@ -79,12 +83,14 @@ export default function EventRegistration() {
               onChange={handleInputChange(setAge)}
             />
             <input type="hidden" id="idx" value={event.id || ""} />
-            <Button
-              text="Submit"
-              size="xs"
-              color="red"
-              disabled={!isFormValid} // Disable if form is not valid
-            />
+            <div className="text-white">
+              <Button
+                text="Submit"
+                size="xs"
+                color="red"
+                disabled={!isFormValid} // Disable if form is not valid
+              />
+            </div>
           </form>
         </div>
       </div>
