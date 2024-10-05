@@ -46,7 +46,7 @@ export default function Courses() {
     <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col md:flex-row">
       <img src={Vivek} alt="Card Image" class="w-full md:w-1/2 object-cover h-48 md:h-auto" />
       <div class="p-4 md:w-1/2">
-        <h2 class="text-xl font-semibold mb-2">Vivik Inumella</h2>
+        <h2 class="text-xl font-semibold mb-2">Vivek Inumella</h2>
         <p class="text-gray-600">CS Major from Georgia Tech</p>
       </div>
     </div>
