@@ -19,6 +19,7 @@ export default function Navbar() {
     { id: 3, text: "Contact", path: "/contact" },
     { id: 4, text: "Profile", path: "/profile" },
     { id: 5, text: "Donate", path: "/donate" },
+    { id: 6, text: "Education", path: "/education" },
    
   ];
 
