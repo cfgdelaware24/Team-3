@@ -263,7 +263,7 @@ function About() {
         {/* Heart Attack VS SCA comparison boxes */}
         <div id="heartAttackVSsca">
           <div className="infoBox">
-            <h2>HEART ATTACK</h2>
+            <h2>HEART ATTACK: A Plumbing Problem</h2>
             <p className="p-4">
               A heart attack occurs when a blocked artery prevents oxygen-rich blood from reaching a section of the heart. 
               If the blocked artery is not reopened quickly, the part of the heart normally nourished by that artery begins to die. 
@@ -274,7 +274,7 @@ function About() {
             </p>
           </div>
           <div className="infoBox">
-            <h2>SCA</h2>
+            <h2>SCA: An Electrical Problem</h2>
             <p className="p-4">
               Sudden cardiac arrest occurs suddenly and often without warning. 
               It is triggered by an electrical malfunction in the heart that causes an irregular heartbeat (arrhythmia). 
