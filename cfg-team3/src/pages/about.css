@@ -62,6 +62,12 @@ h3 {
     padding: 2% 8%;
 }
 
+.graceImages {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 /* Aligns the heart attack vs sca info */
 #heartAttackVSsca {
     display: flex;
