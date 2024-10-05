@@ -12,7 +12,6 @@ db.runCommand({
             dateTime: { bsonType: "string" },
             volunteersCount: { bsonType: "int" },
             ekg: { bsonType: "int" },
-            phone: { bsonType: "string" }
          }
       }
    },
