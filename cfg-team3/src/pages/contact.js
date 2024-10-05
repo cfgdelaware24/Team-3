@@ -8,6 +8,7 @@ function Contact() {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [result, setResult] = useState(''); // State to show form submission status
 
   // Handle input changes
   const handleInputChange = (setter) => (event) => {
@@ -16,6 +17,37 @@ function Contact() {
 
   // Check if all fields are filled
   const isFormValid = firstName && lastName && email && message;
+
+  // Handle form submission with Web3Forms API
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent form from submitting the default way
+    setResult("Sending...");
+
+    const formData = new FormData();
+    formData.append("access_key", "41161567-b3e0-4a2d-bdef-b761df036523"); // Use your Web3Forms API key
+    formData.append("name", `${firstName} ${lastName}`);
+    formData.append("email", email);
+    formData.append("message", message);
+
+    // Make the API request
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      event.target.reset(); // Reset form fields after successful submission
+      setFirstName('');
+      setLastName('');
+      setEmail('');
+      setMessage('');
+    } else {
+      setResult(`Error: ${data.message}`);
+    }
+  };
 
   return (
     <div>
@@ -51,9 +83,9 @@ function Contact() {
             value={email} 
             onChange={handleInputChange(setEmail)} 
           />
-          <input 
+          <textarea
             placeholder="Message" 
-            className="message-input mb-4 w-full p-3 border border-gray-300" 
+            className="message-input mb-4 w-full p-3 border border-gray-300 h-32 resize-none" 
             value={message} 
             onChange={handleInputChange(setMessage)} 
           />
@@ -68,5 +100,6 @@ function Contact() {
     </div>
   );
 }
+
 
 export default Contact;

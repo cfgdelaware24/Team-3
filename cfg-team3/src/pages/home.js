@@ -20,7 +20,7 @@ export default function home() {
               athletes.
             </p>
             <p className="text-5xl">Save a life.</p>
-            <div className="button-container flex flex-col max-w-xs text-xl">
+            <div className="button-container flex flex-col max-w-xs text-xl gap-5">
               <Link to="/events">
                 <Button text="Register for an Event" size="md" color="red" />
               </Link>
@@ -61,7 +61,7 @@ export default function home() {
       <div className="text-black w-full section mt-10">
         <div className="flex justify-center items-center gap-20 flex-wrap">
           <div className="flex flex-col items-center">
-            <div className="bg-slate-400 rounded-full h-48 w-48 flex items-center justify-center">
+            <div className="rounded-full h-48 w-48 flex items-center justify-center">
               <img className="rounded-full" src={Student2Img} alt="" />
             </div>
             <p className="mt-5 text-center max-w-xs">
@@ -70,7 +70,7 @@ export default function home() {
             </p>
           </div>
           <div className="flex flex-col items-center">
-            <div className="bg-slate-400 rounded-full h-48 w-48 flex items-center justify-center">
+            <div className="rounded-full h-48 w-48 flex items-center justify-center">
               <img className="rounded-full" src={StudentImg} alt="" />
             </div>
             <p className="mt-5 text-center max-w-xs">

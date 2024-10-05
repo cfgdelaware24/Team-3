@@ -17,13 +17,13 @@ export default function Navbar() {
     { id: 2, text: "Events", path: "/events" },
     { id: 3, text: "Contact", path: "/contact" },
     { id: 4, text: "Profile", path: "/profile" },
+    { id: 5, text: "Education", path: "/education" },
     { 
-      id: 5, 
+      id: 6, 
       text: "Donate", 
       path: "https://www.heartinthegame.org/checkout/donate?donatePageId=652c1c06b0199d1c5ae4026a", 
       external: true // An external link
     },
-    { id: 6, text: "Education", path: "/education" },
   ];
 
   return (

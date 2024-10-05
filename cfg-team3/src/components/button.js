@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 
 export default function Button(props) {
   const color = {
-    red: "text-white bg-rose-600 hover:bg-rose-400",
-    black: "text-black bg-transparent border-2 border-rose-600 hover:border-rose-400",
+    red: "bg-rose-600 hover:bg-rose-400",
+    black: "bg-transparent border-2 border-rose-600 hover:border-rose-400",
   };
 
   const size = {
