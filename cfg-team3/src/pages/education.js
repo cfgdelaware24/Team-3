@@ -1,4 +1,5 @@
 import Course from "../components/course";
+import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 
 export default function Courses() {
@@ -36,6 +37,7 @@ export default function Courses() {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </>
   );
 }

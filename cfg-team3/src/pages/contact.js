@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navbar from '../components/navbar';
 import './contact.css';
 import Button from '../components/button';
+import Footer from '../components/footer';
 
 function Contact() {
   const [firstName, setFirstName] = useState('');
@@ -50,7 +51,7 @@ function Contact() {
   };
 
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
       <div className='MainText flex flex-col md:flex-row px-4 md:px-10 lg:px-20 py-6'>
 
@@ -97,7 +98,10 @@ function Contact() {
           />
         </div>
       </div>
+      <Footer></Footer>
     </div>
+    
+    
   );
 }
 

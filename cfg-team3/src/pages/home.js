@@ -7,6 +7,7 @@ import StudentImg from "../images/zachExample.svg";
 import Button from "../components/button";
 import Mailing from "../components/mailing";
 import Student2Img from "../images/joeExample.svg";
+import Footer from "../components/footer";
 
 export default function home() {
   return (
@@ -88,6 +89,7 @@ export default function home() {
       <div className="w-full section flex justify-center">
         <Mailing />
       </div>
+      <Footer /> 
     </>
   );
 }
