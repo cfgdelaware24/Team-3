@@ -51,7 +51,7 @@ export default function EventDetail() {
           </div>
           <div className="w-full md:w-3/4 p-4">
             <div className="text-3xl font-semibold py-4">
-              Hi John Doe! Here are your events:
+              Hi John Doe! Here are your events
             </div>
             <div className="flex flex-col flex-wrap justify-center">
               {registeredEvents.map((event, idx) => {

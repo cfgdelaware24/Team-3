@@ -12,7 +12,7 @@ function ArticleCard ({ article, index }) {
     return (
         <div className="articleCard" onClick={handleIDClick}>
             {/* Displays article title, date, description, and image */}
-            <div className="verticalBundle">
+            <div className="articleInfo">
                 <h3>{article.title}</h3>
                 <p className="date">{article.date}</p>
                 <p>{article.description}</p>
