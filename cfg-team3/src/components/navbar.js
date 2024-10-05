@@ -2,8 +2,8 @@
 
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import logoImage from "../images/HeartintheGameLogo.png"
-import burgerSVG from "../images/burger-menu.svg"
+import logoImage from "../images/HeartintheGameLogo.png";
+import burgerSVG from "../images/burger-menu.svg";
 
 export default function Navbar() {
   const [burger, setBurger] = useState(false);
@@ -13,11 +13,11 @@ export default function Navbar() {
   };
 
   const navItems = [
-    { id: 1, text: "Home", path: "/" },
-    { id: 2, text: "About", path: "/about" },
-    { id: 3, text: "Events", path: "/events" },
-    { id: 4, text: "Contact", path: "/contact" },
-    { id: 5, text: "Profile", path: "/profile" },
+    { id: 1, text: "About", path: "/about" },
+    { id: 2, text: "Events", path: "/events" },
+    { id: 3, text: "Contact", path: "/contact" },
+    { id: 4, text: "Profile", path: "/profile" },
+    { id: 5, text: "Donate", path: "/donate" },
   ];
 
   return (
@@ -69,7 +69,7 @@ export default function Navbar() {
       </div>
       <div className={burger ? "burger is-open" : "burger"}>
         <ul className={"md:hidden overflow-hidden flex flex-col bg-white"}>
-        {navItems.map((item) => (
+          {navItems.map((item) => (
             <li key={item.id}>
               <Link
                 className="p-3 rounded-md hover:bg-teal hover:text-white mx-2 cursor-pointer duration-300"

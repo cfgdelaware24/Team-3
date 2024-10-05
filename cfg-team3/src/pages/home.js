@@ -3,6 +3,8 @@ import lifelineIcon from "../images/lifelineIcon.svg";
 import HomeBtn from "../components/homeBtn";
 import SchoolImg from "../images/schoolExample.svg";
 import Navbar from "../components/navbar";
+import { Link } from "react-router-dom";
+import StudentImg from "../images/zachExample.svg";
 
 export default function home() {
   return (
@@ -17,8 +19,12 @@ export default function home() {
             </p>
             <p className="text-5xl">Save a life.</p>
             <div className="button-container flex flex-col max-w-xs gap-5 text-xl">
-              <HomeBtn text="Register for an Event" isTransparent={false} />
-              <HomeBtn text="Donate" isTransparent={true} />
+              <Link to="/events">
+                <HomeBtn text="Register for an Event" isTransparent={false} />
+              </Link>
+              <Link to="/donate">
+                <HomeBtn text="Donate" isTransparent={true} />
+              </Link>
             </div>
           </div>
           <div className="hero-right">
@@ -40,34 +46,40 @@ export default function home() {
               the importance and simplicity of bystander CPR.
             </p>
             <div className="button-container flex justify-between gap-5 text-xl">
-              <button className="bg-red-400 p-5 rounded-md w-full">
-                More Info
-              </button>
-              <button className="bg-transparent border-2 border-red-400 p-5 rounded-md w-full">
-                Volunteer Signup
-              </button>
+              <Link className="w-full" to="/about">
+                <HomeBtn text="More Info" isTransparent={false} />
+              </Link>
+              <Link className="w-full" to="/volunteer">
+                <HomeBtn text="Volunteer Signup" isTransparent={true} />
+              </Link>
             </div>
           </div>
         </div>
       </div>
       <div className="text-black w-full section">
-        <div className="flex justify-center items-center gap-20">
+        <div className="flex justify-center items-center gap-20 flex-wrap">
           <div className="flex flex-col items-center">
-            <div className="bg-slate-400 rounded-full h-48 w-48 flex items-center justify-center"></div>
+            <div className="bg-slate-400 rounded-full h-48 w-48 flex items-center justify-center">
+              <img className="rounded-full" src={StudentImg} alt="" />
+            </div>
             <p className="mt-2 text-center max-w-xs">
               A free non evasive EKG took less than 15 minutes and kept Zach
               from possibly being a statistic
             </p>
           </div>
           <div className="flex flex-col items-center">
-            <div className="bg-slate-400 rounded-full h-48 w-48 flex items-center justify-center"></div>
+            <div className="bg-slate-400 rounded-full h-48 w-48 flex items-center justify-center">
+              <img className="rounded-full" src={StudentImg} alt="" />
+            </div>
             <p className="mt-2 text-center max-w-xs">
               A free non evasive EKG took less than 15 minutes and kept Zach
               from possibly being a statistic
             </p>
           </div>
           <div className="flex flex-col items-center">
-            <div className="bg-slate-400 rounded-full h-48 w-48 flex items-center justify-center"></div>
+            <div className="bg-slate-400 rounded-full h-48 w-48 flex items-center justify-center">
+              <img className="rounded-full" src={StudentImg} alt="" />
+            </div>
             <p className="mt-2 text-center max-w-xs">
               A free non evasive EKG took less than 15 minutes and kept Zach
               from possibly being a statistic
@@ -75,9 +87,11 @@ export default function home() {
           </div>
         </div>
         <div className="button-container flex justify-center my-10">
-          <button className="bg-red-400 p-5 rounded-md">
-            View More Stories
-          </button>
+          <Link to="/about">
+            <button className="bg-red-400 p-5 rounded-md">
+              View More Stories
+            </button>
+          </Link>
         </div>
       </div>
     </>
