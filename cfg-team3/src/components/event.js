@@ -1,7 +1,7 @@
 import Button from "./button";
 import { Link } from "react-router-dom";
 
-export default function Event({ event }) {
+export default function Event({ event, status }) {
   return (
     <div className="group rounded-sm bg-white shadow-lg m-4">
       <div className="p-4 flex justify-between">
@@ -19,9 +19,10 @@ export default function Event({ event }) {
         <div className="text-right flex flex-col items-end">
           <div className="font-light text-3xl">{event.dateTime}</div>
           <div className="font-light text-lg">{event.phone}</div>
-          <Link to="/event-registration">
+          
+          {status==="not-registered" && (<Link to="/event-registration">
             <Button text="Register" size="xs" color="red" />
-          </Link>
+          </Link>)}
         </div>
       </div>
     </div>
