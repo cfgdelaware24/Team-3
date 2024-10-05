@@ -1,4 +1,5 @@
 import Event from "../components/event";
+import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 import MyIcon from "../images/usericon.svg";
 
@@ -41,7 +42,7 @@ export default function EventDetail() {
       <Navbar />
       <div className="bg-slate-100">
         <div className="max-w-screen-md mx-auto pb-[200px] flex flex-col md:flex-row">
-          <div className="w-full md:w-1/4 p-4">
+          <div className="w-full mt-[85px] md:w-1/4 p-4">
             <div className="bg-white p-4 rounded-lg shadow-md">
               <img
                 src={MyIcon}
@@ -70,6 +71,7 @@ export default function EventDetail() {
             </div>
           </div>
         </div>
+        <Footer></Footer>
       </div>
     </>
   );
