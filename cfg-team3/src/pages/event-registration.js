@@ -4,7 +4,14 @@ import { useState } from "react";
 import Button from "../components/button";
 import Event from "../components/event";
 import { firestore } from "../firebase"; // Import Firestore instance
-import { doc, setDoc, updateDoc, increment } from "@firebase/firestore";
+import {
+  doc,
+  addDoc,
+  updateDoc,
+  increment,
+  arrayUnion,
+  collection,
+} from "@firebase/firestore";
 
 export default function EventRegistration() {
   const location = useLocation();
@@ -19,29 +26,27 @@ export default function EventRegistration() {
 
   const [submitted, setSubmitted] = useState(false);
 
-  // Firestore document creation
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form submission behavior
+    e.preventDefault();
 
     try {
-      // Create a document named after the email inside a collection named after the event name
-      await setDoc(doc(firestore, event.name, email), {
+      const eventRef = doc(firestore, "ApprovedEvents", event.id);
+      const userRef = await addDoc(collection(firestore, "users"), {
         firstName,
         lastName,
+        email,
         phone,
         age,
+        registrationType,
       });
 
-      await setDoc(
-        doc(firestore, event.name, event.name),
-        {
-          count: increment(1), // Increment the count field or set it if it doesn't exist
-        },
-        { merge: true }
-      );
+      await updateDoc(eventRef, {
+        participants: increment(1),
+        users: arrayUnion(email),
+      });
 
       console.log(
-        `Document for event ${event.name} and email ${email} successfully written!`
+        `User ${email} successfully registered for event ${event.name}!`
       );
 
       setSubmitted(true);
@@ -61,7 +66,8 @@ export default function EventRegistration() {
   };
 
   // Check if all fields are filled
-  const isFormValid = firstName && lastName && email && phone && age && registrationType;
+  const isFormValid =
+    firstName && lastName && email && phone && age && registrationType;
 
   return (
     <>
@@ -73,7 +79,7 @@ export default function EventRegistration() {
             <select
               id="registration-type"
               name="registration-type"
-              class="p-3 w-full border border-gray-300 rounded"
+              className="p-3 w-full border border-gray-300 rounded"
               onChange={handleInputChange(setRegistrationType)}
               required
             >
