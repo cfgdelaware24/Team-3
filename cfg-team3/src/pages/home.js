@@ -8,6 +8,7 @@ import Button from "../components/button";
 import Mailing from "../components/mailing";
 import Student2Img from "../images/joeExample.svg";
 import Footer from "../components/footer";
+import { motion } from "framer-motion";
 
 export default function home() {
   return (
@@ -62,18 +63,30 @@ export default function home() {
       <div className="text-black w-full section mt-10">
         <div className="flex justify-center items-center gap-20 flex-wrap">
           <div className="flex flex-col items-center">
-            <div className="rounded-full h-48 w-48 flex items-center justify-center">
-              <img className="rounded-full" src={Student2Img} alt="" />
-            </div>
+            <motion.div
+              initial={{ scale: 1 }}
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 300, damping: 15 }}
+            >
+              <div className="rounded-full h-48 w-48 flex items-center justify-center">
+                <img className="rounded-full" src={Student2Img} alt="" />
+              </div>
+            </motion.div>
             <p className="mt-5 text-center max-w-xs">
               15 year old Joseph Till says EKG "Honestly saved my life" after
               confirming an underlying condition
             </p>
           </div>
           <div className="flex flex-col items-center">
-            <div className="rounded-full h-48 w-48 flex items-center justify-center">
-              <img className="rounded-full" src={StudentImg} alt="" />
-            </div>
+            <motion.div
+              initial={{ scale: 1 }}
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 300, damping: 15 }}
+            >
+              <div className="rounded-full h-48 w-48 flex items-center justify-center">
+                <img className="rounded-full" src={StudentImg} alt="" />
+              </div>
+            </motion.div>
             <p className="mt-5 text-center max-w-xs">
               A free non evasive EKG took less than 15 minutes and kept Zach
               from possibly being a statistic
@@ -89,7 +102,7 @@ export default function home() {
       <div className="w-full section flex justify-center pb-[100px]">
         <Mailing />
       </div>
-      <Footer /> 
+      <Footer />
     </>
   );
 }
