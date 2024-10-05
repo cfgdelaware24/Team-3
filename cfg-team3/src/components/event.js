@@ -27,7 +27,19 @@ export default function Event({ event, status }) {
             </Link>
           )}
           {status === "in-progress" && (
-            <div className="flex rounded-sm px-3 py-3 border-none text-xl font-semibold bg-green-300">Sign Up Below!</div>
+            <div className="flex rounded-sm px-3 py-3 border-none text-xl font-semibold bg-green-300">
+              Sign Up Below!
+            </div>
+          )}
+          {status === "registered" && (
+            <div className="flex rounded-sm px-3 py-3 border-none text-xl font-semibold bg-green-300">
+              Registered!
+            </div>
+          )}
+          {status === "finished" && (
+            <div className="flex rounded-sm px-3 py-3 border-none text-xl font-semibold bg-rose-300">
+              Finished
+            </div>
           )}
         </div>
       </div>

@@ -27,7 +27,7 @@ export default function EventRegistration() {
   return (
     <>
       <Navbar />
-      <div className="bg-slate-100 bg-slate-100">
+      <div className="bg-slate-100">
         <div className="max-w-screen-md mx-auto px-4 pt-4 pb-[200px]">
           <Event event={event} status="in-progress" />
           <form
