@@ -3,7 +3,6 @@ import "./about.css";
 import ArticleCard from "./articles/articleCard.js";
 import Navbar from "../components/navbar";
 import Greer from "../images/Greer.jpg";
-import Drezner from "../images/drezner.png";
 import PHW from "../images/ParentHeartWatch2.png";
 import Button from "../components/button";
 import articles from "./articles/articles.js";
@@ -92,9 +91,13 @@ function About() {
             </a>
           </div>
         </div>
-
-        {/* Impact statement about Grace Firestone Act */}
       </div>
+
+      <div className="bg-rose-300">
+        <h2 className="text-1xl font-semibold py-4 text-center">More Stories</h2>
+      </div>
+
+      {/* Impact statement about Grace Firestone Act */}
       <div className="graceFirestone">
         <h2>Grace Firestone Act</h2>
         <p className="paragraph-separation">
@@ -253,8 +256,6 @@ function About() {
         </div>
       )}
 
-
-
         <h3 className="dropdown-title" onClick={toggleStats}>
         Statistics Behind SCA
         <svg
@@ -286,8 +287,12 @@ function About() {
         </div>
       )}
 
-      <div id="articles">
-        <h2 className="pageTitle">Articles</h2>
+      <div className="bg-rose-300">
+        <h2 className="text-1xl font-semibold py-4 text-center">Sudden Cardiac Arrest (SCA) Facts</h2>
+      </div>
+
+      <div>
+        <h2 className="text-1xl font-semibold py-4 text-center">Articles</h2>
         <div id="articleCards">
           {articles.map((article, index) => (
             <div>
