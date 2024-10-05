@@ -33,11 +33,12 @@ function About() {
       {/* Founder title, photo, and bio */}
       <div className="bg-rose-300">
         <div className="flex flex-col md:flex-row p-4 max-w-screen-lg mx-auto items-center">
-          <div className="flex flex-col items-center rounded-sm bg-white shadow-lg m-4 mr-8">
+          <div className="flex flex-col items-center rounded-sm bg-white shadow-lg m-4 mr-8 pb-2">
             <div className="w-60">
               <img src={Greer} alt="Greer Firestone" />
             </div>
-            <h2>Founder</h2>
+            <h2>Greer Firestone</h2>
+            <p>Founder</p>
           </div>
           <p>
             A phone call at midnight. "Grace had a heart attack". NO! That could
