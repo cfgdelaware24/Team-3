@@ -7,9 +7,9 @@ db.runCommand({
          properties: {
             eventId: { bsonType: "string" },
             name: { bsonType: "string" },
-            sponsor: { bsonType: "bool" },
+            sponsor: { bsonType: "string" },
             location: { bsonType: "string" },
-            dateTime: { bsonType: "date" },
+            dateTime: { bsonType: "string" },
             volunteersCount: { bsonType: "int" },
             ekg: { bsonType: "int" },
             phone: { bsonType: "string" }
