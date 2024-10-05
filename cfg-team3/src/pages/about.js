@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import "./about.css";
 import ArticleCard from "./articles/articleCard.js";
+import StoryCard from "./stories/storyCard.js";
 import Navbar from "../components/navbar";
+import Footer from "../components/footer.js";
+
+// Image and info imports
 import Greer from "../images/Greer.jpg";
 import PHW from "../images/ParentHeartWatch2.png";
 import Button from "../components/button";
 import articles from "./articles/articles.js";
-import Footer from "../components/footer.js";
+import stories from "./stories/stories.js";
 
 function About() {
   const [isOpenSponsor, setIsOpenSponsor] = useState(false);
@@ -93,8 +97,18 @@ function About() {
         </div>
       </div>
 
+      {/* Card views for available press */}
       <div className="bg-rose-300">
-        <h2 className="text-1xl font-semibold py-4 text-center">More Stories</h2>
+        <div>
+          <h2 className="text-1xl font-semibold py-4 text-center">More Stories</h2>
+          <div id="storyCards">
+            {stories.map((story, index) => (
+              <div>
+                <StoryCard className="mx-auto" key={index} story={story} />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Impact statement about Grace Firestone Act */}
