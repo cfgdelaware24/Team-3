@@ -7,6 +7,7 @@ import Drezner from "../images/drezner.png";
 import PHW from "../images/ParentHeartWatch2.png";
 import Button from "../components/button";
 import articles from "./articles/articles.js";
+import Footer from '../components/footer.js';
 
 function About() {
   const [isOpenSponsor, setIsOpenSponsor] = useState(false);
@@ -141,6 +142,7 @@ function About() {
             ))}
           </div>
         </div>
+        <Footer></Footer>
     </div>
   );
 }

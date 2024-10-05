@@ -4,6 +4,7 @@ import Button from "../components/button";
 import { useState } from "react";
 
 import "./contact.css";
+import Footer from "../components/footer";
 
 export default function Events() {
   const [firstName, setFirstName] = useState("");
@@ -108,6 +109,7 @@ export default function Events() {
             </div>
           </form>
         </div>
+        <Footer></Footer>
       </div>
     </>
   );
