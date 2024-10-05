@@ -2,6 +2,8 @@
 
 import { Link } from 'react-router-dom';
 import { useState } from "react";
+import logoImage from "../images/HeartintheGameLogo.png"
+import burgerSVG from "../images/burger-menu.svg"
 
 export default function Navbar() {
   const [burger, setBurger] = useState(false);
@@ -26,7 +28,7 @@ export default function Navbar() {
           <img
             id="heart-in-the-game-logo"
             priority
-            src={"/images/HeartintheGameLogo.png"}
+            src={logoImage}
             width="100"
             height="100"
             alt="Heart in the Game Logo"
@@ -37,7 +39,7 @@ export default function Navbar() {
           {navItems.map((item) => (
             <li key={item.id}>
               <Link
-                className="p-3 rounded-md hover:bg-teal hover:text-white mx-2 cursor-pointer duration-300"
+                className="p-3 rounded-md hover:bg-teal hover:scale-125 mx-2 cursor-pointer duration-300"
                 to={item.path}
               >
                 {item.text}
@@ -50,14 +52,14 @@ export default function Navbar() {
         <div onClick={handleBurger} className="block md:hidden">
           {burger ? (
             <img
-              src={"/images/x.svg"}
+              src={burgerSVG}
               width="20"
               height="20"
               alt="burger-menu-close"
             />
           ) : (
             <img
-              src={"/images/burger-menu.svg"}
+              src={burgerSVG}
               width="20"
               height="20"
               alt="burger-menu-open"
