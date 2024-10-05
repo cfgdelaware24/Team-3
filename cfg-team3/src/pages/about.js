@@ -9,7 +9,7 @@ import HomeBtn from '../components/homeBtn';
 function About() {
   return (
     <div>
-      <Navbar />
+      <Navbar></Navbar>
       <h1 id="pageTitle">About Heart in the Game</h1>
 
       <div className="founders">

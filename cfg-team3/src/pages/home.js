@@ -1,11 +1,12 @@
 import React from "react";
 import lifelineIcon from "../images/lifelineIcon.svg";
 import HomeBtn from "../components/homeBtn";
+import Navbar from "../components/navbar";
 
 export default function home() {
   return (
     <>
-      {/* Navbar */}
+     <Navbar></Navbar>
       <div className="bg-black w-full">
         <div className="flex container mx-auto items-center w-full bg-black text-white p-5 px-28">
           <div className="hero-left flex flex-col gap-5">
