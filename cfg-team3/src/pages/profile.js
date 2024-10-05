@@ -4,6 +4,7 @@ import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 import { firestore } from "../firebase"; // Import Firestore instance
 import { collection, getDocs } from "@firebase/firestore";
+import MyIcon from "../images/usericon.svg"
 
 export default function EventDetail() {
   const userId = "SjnfUeRrj3MAMfkOIYPX";
