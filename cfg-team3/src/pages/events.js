@@ -1,7 +1,9 @@
+import React, { useState, useEffect } from "react";
 import Event from "../components/event";
 import Navbar from "../components/navbar";
 import Button from "../components/button";
-import { useState } from "react";
+import { firestore } from "../firebase"; // Import Firestore instance
+import { doc, setDoc, collection, getDocs } from "@firebase/firestore"; // Import the needed functions
 
 import "./contact.css";
 import Footer from "../components/footer";
@@ -10,55 +12,66 @@ export default function Events() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [location, setLocation] = useState("");
+  const [scheduledEvents, setScheduledEvents] = useState([]);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const eventsCollection = collection(firestore, "ApprovedEvents");
+        const eventSnapshot = await getDocs(eventsCollection);
+        const eventsList = eventSnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setScheduledEvents(eventsList);
+      } catch (error) {
+        console.error("Error fetching events: ", error);
+      }
+    };
+
+    fetchEvents();
+  }, []);
+
+  const [submitted, setSubmitted] = useState(false);
 
   // Handle input changes
   const handleInputChange = (setter) => (event) => {
     setter(event.target.value);
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
+
+    try {
+      // Create a document in Firestore
+      await setDoc(doc(firestore, "EventRequests", location), {
+        firstName,
+        lastName,
+        location,
+      });
+      console.log("Event request successfully submitted!");
+      setSubmitted(true);
+      setFirstName("");
+      setLastName("");
+      setLocation("");
+    } catch (error) {
+      console.error("Error submitting event request: ", error);
+    }
+  };
+
   // Check if all fields are filled
   const isFormValid = firstName && lastName && location;
-
-  const ScheduledEvents = [
-    {
-      id: "sandflkadns",
-      name: "Wilmington Charter School",
-      location: "100 N Dupont Rd, Wilmington, DE 19807",
-      sponsor: "JP Morgan",
-      dateTime: "10/24/2024 5:00PM",
-      volunteersCount: 4,
-      ekg: 4,
-    },
-    {
-      id: "asdf",
-      name: "Tower Hill High School",
-      location: "2813 W 17th St, Wilmington, DE 19806",
-      sponsor: "Chase",
-      dateTime: "11/14/2024 5:00PM",
-      volunteersCount: 5,
-      ekg: 5,
-    },
-    {
-      id: "gadsgas",
-      name: "Dover Middle School",
-      location: "1 Dover High Dr, Dover, DE 19904",
-      sponsor: "Sponsor 3",
-      dateTime: "12/2/2024 5:00PM",
-      volunteersCount: 3,
-      ekg: 6,
-    },
-  ];
 
   return (
     <>
       <Navbar />
       <div className="bg-slate-100">
-        <div className=" max-w-screen-md mx-auto px-4">
+        <div className="max-w-screen-md mx-auto px-4">
           <div className="text-3xl font-semibold pb-4 pt-8 text-center">
             Scheduled Events
           </div>
           <div className="flex flex-col flex-wrap justify-center">
-            {ScheduledEvents.map((event, idx) => {
+            {scheduledEvents.map((event, idx) => {
               return <Event key={idx} event={event} status="not-registered" />;
             })}
           </div>
@@ -69,6 +82,7 @@ export default function Events() {
             className="mx-auto pb-[200px] flex flex-col gap-4"
             action="event"
             method="post"
+            onSubmit={handleSubmit}
           >
             <div className="flex gap-4 sm:flex-row flex-col">
               <input
@@ -100,6 +114,9 @@ export default function Events() {
               onChange={handleInputChange(setLocation)}
             />
             <div className="text-white">
+              {submitted && (
+                <p className="text-green-500">Form submitted successfully!</p>
+              )}
               <Button
                 text="Submit"
                 size="xs"
@@ -109,7 +126,7 @@ export default function Events() {
             </div>
           </form>
         </div>
-        <Footer></Footer>
+        <Footer />
       </div>
     </>
   );
