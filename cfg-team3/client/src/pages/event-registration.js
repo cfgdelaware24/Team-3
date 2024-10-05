@@ -9,8 +9,8 @@ export default function EventRegistration() {
     const [sponsor, setSponsor] = useState('');
     const [location, setLocation] = useState('');
     const [dateTime, setDateTime] = useState('');
-    const [volunteersCount, setVolunteersCount] = useState(0);
-    const [ekg, setEkg] = useState(0);
+    const [volunteersCount, setVolunteersCount] = useState('');
+    const [ekg, setEkg] = useState('');
     const [message, setMessage] = useState('');
 
 
@@ -28,11 +28,12 @@ export default function EventRegistration() {
 
 
         try {
-            console.log(formData);
+            console.log(formData); 
+            console.log("firstside");
           const response = await axios.post('http://localhost:4000/api/app_submit', formData);
           setMessage(response.data.message);
         } catch (error) {
-          console.error("There was an error submitting the form!", error);
+          console.log("There was an error submitting the form!");
           setMessage("Error submitting data."); 
         }
       };

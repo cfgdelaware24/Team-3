@@ -1,58 +1,71 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 const cors = require('cors');
-require('dotenv').config();
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 4000;
 
-app.use(cors());
-app.use(bodyParser.json());
 
-mongoose.connect(process.env.MONGO_CONNECTION_STRING, {
+app.use(cors());
+app.use(express.json());  
+
+
+const dbName = 'HeartInTheGame';
+const mongoUri = `${process.env.MONGO_CONNECTION_STRING}/${dbName}`;
+
+mongoose.connect(mongoUri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-}).then(() => console.log("MongoDB connected"))
-  .catch(err => console.error(err));
+})
+    .then(() => console.log(`MongoDB connected to ${dbName}`))
+    .catch(err => {
+        console.error("MongoDB connection failed:", err.message);
+        process.exit(1); 
+    });
 
 // Define Event model
 const eventSchema = new mongoose.Schema({
-    eventId: String,
-    name: String,
+    eventId: { type: String, required: true },
+    name: { type: String, required: true },
     sponsor: String,
     location: String,
     dateTime: String,
-    volunteersCount: Number,
-    ekg: Number
+    volunteersCount: { type: Number, required: true },
+    ekg: { type: Number, required: true },
 });
 
 const Event = mongoose.model('Event', eventSchema);
 
-// API endpoint to submit event data
+
 app.post('/api/app_submit', async (req, res) => {
-    const { input_event_id, input_name, input_sponsor, input_location, input_datetime, input_volunteer_count, input_ekg } = req.body;
+    const { eventId, name, sponsor, location, dateTime, volunteersCount, ekg } = req.body;
 
     const newEvent = new Event({
-        eventId: input_event_id,
-        name: input_name,
-        sponsor: input_sponsor,
-        location: input_location,
-        dateTime: input_datetime,
-        volunteersCount: parseFloat(input_volunteer_count),
-        ekg: parseFloat(input_ekg)
+        eventId,
+        name,
+        sponsor,
+        location,
+        dateTime,
+        volunteersCount: parseFloat(volunteersCount),
+        ekg: parseFloat(ekg),
     });
 
     try {
-        await newEvent.save();
-        res.status(200).json({ message: "Event added successfully!" });
+        console.log("second_time");
+        console.log(newEvent); 
+        newEvent.save();
+        
+        return res.status(201).json({ message: "Event added successfully!" });
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: "Internal Server Error" });
+        console.error("Error saving event:", error.message);
+        return res.status(500).json({ error: "Failed to add the event. Please try again." });
     }
 });
 
-// Start the server
+
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
