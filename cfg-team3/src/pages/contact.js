@@ -87,12 +87,10 @@ function Contact() {
             required
           />
           <textarea
-            placeholder="Message"
-            className="message-input mb-4 w-full rounded-2xl p-3 border border-gray-300"
-            value={message}
-            onChange={handleInputChange(setMessage)}
-            rows="5"
-            required
+            placeholder="Message" 
+            className="message-input mb-4 w-full p-3 border border-gray-300 h-32 resize-none" 
+            value={message} 
+            onChange={handleInputChange(setMessage)} 
           />
           <Button
             text="Submit"

@@ -25,7 +25,11 @@ export default function Button(props) {
     >
       <a
         href={props.href}
+<<<<<<< HEAD
+        className={"flex my-4 rounded-sm transition " + color[props.color]}
+=======
         className={"flex rounded-xl transition " + color[props.color]}
+>>>>>>> 1ede508045e4a98d039923476d2ee272f320eb2f
       >
         <button
           className={

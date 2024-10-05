@@ -1,56 +1,57 @@
-.MainText{
-    display: flex;   
+.MainText {
+    display: flex;
 }
 
-.Text{
+.Text {
     margin-top: 200px;
-    margin-right: 50px;
+    margin-right: 100px;
 }
-.name-input
-{
+
+.name-input {
     margin-top: 10px;
     width: 250px;
     height: 50px;
-    border: 1px solid rgb(253 164 175);
+    border: 1px solid rgb(253, 164, 175);
     padding-left: 10px;
     background-color: #f4f4f4;
 }
 
-.Lname-input
-{
+.Lname-input {
     margin-top: 10px;
     margin-left: 40px;
     width: 250px;
     height: 50px;
-    border: 1px solid rgb(253 164 175);
+    border: 1px solid rgb(253, 164, 175);
     padding-left: 10px;
     background-color: #f4f4f4;
 }
 
-.email-input
-{
+.email-input {
     margin-top: 10px;
     width: 540px;
     height: 50px;
-    border: 1px solid rgb(253 164 175);
+    border: 1px solid rgb(253, 164, 175);
     padding-left: 10px;
     background-color: #f4f4f4;
 }
 
-.message-input
-{
+.message-input {
     margin-top: 10px;
     width: 540px;
     height: 150px;
-    border: 1px solid rgb(253 164 175);
+    border: 1px solid rgb(253, 164, 175);
     padding-left: 10px;
     background-color: #f4f4f4;
 }
 
-/* Media Query for mobile screens */
+/* Combined Media Query for mobile screens */
 @media (max-width: 768px) {
-  .name-input, .email-input, .message-input,.Lname-input{
+  .name-input, .email-input, .message-input, .Lname-input {
     width: 100%; /* Make inputs full width on mobile */
     margin-left: 0;
+  }
+
+  .Text,.name-input {
+    margin-top: 10px; /* Set margin-top to 10px on mobile */
   }
 }
