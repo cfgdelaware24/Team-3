@@ -12,12 +12,12 @@ export default function Course({ course }) {
             Modules Left: {course.ModulesLeft}
           </div>
           <div className="font-light text-lg">
-            Sponsored by: {course.NextLesson}
+            Next Lesson: {course.NextLesson}
           </div>
         </div>
         <div className="text-right flex flex-col items-end">
-          <Link to="/event-registration">
-            <Button text="Resume" size="xs" color="red" />
+          <Link className="text-white" to="/event-registration">
+            <Button text="Continue" size="xs" color="red" />
           </Link>
         </div>
       </div>

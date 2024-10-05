@@ -1,69 +1,98 @@
 import { useLocation } from "react-router-dom";
 import Navbar from "../components/navbar";
-import "./contact.css";
+import { useState } from "react";
+import Button from "../components/button";
+import Event from "../components/event";
 
 export default function EventRegistration() {
   const location = useLocation();
   const event = location.state;
 
-  console.log(event);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [age, setAge] = useState("");
+
+  // Handle input changes
+  const handleInputChange = (setter) => (event) => {
+    setter(event.target.value);
+  };
+
+  // Check if all fields are filled
+  const isFormValid = firstName && lastName && email && phone && age;
+
+  // console.log(event);
 
   return (
     <>
       <Navbar />
-      <div className="max-w-screen-md mx-auto">
-        <div className="font-medium text-3xl">{event.name}</div>
-        <form className="flex flex-row flex-wrap gap-4" action="event" method="post">
-          <div>
+      <div className="bg-slate-100">
+        <div className="max-w-screen-md mx-auto px-4 pt-4 pb-[200px]">
+          <Event event={event} status="in-progress" />
+          <form
+            className="flex flex-col gap-4 mt-8"
+            action="event"
+            method="post"
+          >
+            <div className="flex gap-4 sm:flex-row flex-col">
+              <input
+                className="p-3 w-full border border-gray-300 rounded"
+                type="text"
+                id="first-name"
+                name="first-name"
+                placeholder="First Name"
+                value={firstName}
+                onChange={handleInputChange(setFirstName)}
+              />
+              <input
+                className="p-3 w-full border border-gray-300 rounded"
+                type="text"
+                id="last-name"
+                name="last-name"
+                placeholder="Last Name"
+                value={lastName}
+                onChange={handleInputChange(setLastName)}
+              />
+            </div>
             <input
-              type="text"
-              id="name"
-              className="name-input"
-              placeholder="First Name"
-              required
-            />
-          </div>
-          <div>
-            <input
-              type="text"
-              id="name"
-              className="name-input ml-6"
-              placeholder="Last Name"
-              required
-            />
-          </div>
-          <div>
-            <input
+              className="p-3 w-full border border-gray-300 rounded"
               type="text"
               id="email"
-              className="email-input"
+              name="email"
               placeholder="Email"
-              required
+              value={email}
+              onChange={handleInputChange(setEmail)}
             />
-          </div>
-          <div>
             <input
+              className="p-3 w-full border border-gray-300 rounded"
               type="text"
               id="phone"
-              className="name-input"
-              placeholder="Phone"
-              required
+              name="phone"
+              placeholder="Phone Number"
+              value={phone}
+              onChange={handleInputChange(setPhone)}
             />
-          </div>
-          <div>
             <input
+              className="p-3 w-full border border-gray-300 rounded"
               type="text"
               id="age"
-              className="name-input ml-6"
-              placeholder="Age"
-              required
+              name="age"
+              placeholder="Patient Age"
+              value={age}
+              onChange={handleInputChange(setAge)}
             />
-          </div>
-          <input type="hidden" id="idx" value={event.id || ""} />
-          <div>
-            <input type="submit" />
-          </div>
-        </form>
+            <input type="hidden" id="idx" value={event.id || ""} />
+            <div className="text-white">
+              <Button
+                text="Submit"
+                size="xs"
+                color="red"
+                disabled={!isFormValid} // Disable if form is not valid
+              />
+            </div>
+          </form>
+        </div>
       </div>
     </>
   );
