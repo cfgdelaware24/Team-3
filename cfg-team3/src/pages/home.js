@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import StudentImg from "../images/zachExample.svg";
 import Button from "../components/button";
 import Mailing from "../components/mailing";
+import Student2Img from "../images/joeExample.svg";
 
 export default function home() {
   return (
@@ -61,27 +62,18 @@ export default function home() {
         <div className="flex justify-center items-center gap-20 flex-wrap">
           <div className="flex flex-col items-center">
             <div className="bg-slate-400 rounded-full h-48 w-48 flex items-center justify-center">
-              <img className="rounded-full" src={StudentImg} alt="" />
+              <img className="rounded-full" src={Student2Img} alt="" />
             </div>
-            <p className="mt-2 text-center max-w-xs">
-              A free non evasive EKG took less than 15 minutes and kept Zach
-              from possibly being a statistic
+            <p className="mt-5 text-center max-w-xs">
+              15 year old Joseph Till says EKG "Honestly saved my life" after
+              confirming an underlying condition
             </p>
           </div>
           <div className="flex flex-col items-center">
             <div className="bg-slate-400 rounded-full h-48 w-48 flex items-center justify-center">
               <img className="rounded-full" src={StudentImg} alt="" />
             </div>
-            <p className="mt-2 text-center max-w-xs">
-              A free non evasive EKG took less than 15 minutes and kept Zach
-              from possibly being a statistic
-            </p>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="bg-slate-400 rounded-full h-48 w-48 flex items-center justify-center">
-              <img className="rounded-full" src={StudentImg} alt="" />
-            </div>
-            <p className="mt-2 text-center max-w-xs">
+            <p className="mt-5 text-center max-w-xs">
               A free non evasive EKG took less than 15 minutes and kept Zach
               from possibly being a statistic
             </p>
