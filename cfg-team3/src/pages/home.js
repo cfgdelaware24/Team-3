@@ -5,6 +5,7 @@ import SchoolImg from "../images/schoolExample.svg";
 import Navbar from "../components/navbar";
 import { Link } from "react-router-dom";
 import StudentImg from "../images/zachExample.svg";
+import Button from "../components/button";
 
 export default function home() {
   return (
@@ -18,12 +19,12 @@ export default function home() {
               athletes.
             </p>
             <p className="text-5xl">Save a life.</p>
-            <div className="button-container flex flex-col max-w-xs gap-5 text-xl">
+            <div className="button-container flex flex-col max-w-xs text-xl">
               <Link to="/events">
-                <HomeBtn text="Register for an Event" isTransparent={false} />
+                <Button text="Register for an Event" size="md" color="red" />
               </Link>
               <Link to="/donate">
-                <HomeBtn text="Donate" isTransparent={true} />
+                <Button text="Donate" size="md" color="black" />
               </Link>
             </div>
           </div>
@@ -47,16 +48,16 @@ export default function home() {
             </p>
             <div className="button-container flex justify-between gap-5 text-xl">
               <Link className="w-full" to="/about">
-                <HomeBtn text="More Info" isTransparent={false} />
+                <Button text="More Info" size="lg" color="red" />
               </Link>
               <Link className="w-full" to="/volunteer">
-                <HomeBtn text="Volunteer Signup" isTransparent={true} />
+                <Button text="Volunteer Signup" size="lg" color="black" />
               </Link>
             </div>
           </div>
         </div>
       </div>
-      <div className="text-black w-full section">
+      <div className="text-black w-full section mt-10">
         <div className="flex justify-center items-center gap-20 flex-wrap">
           <div className="flex flex-col items-center">
             <div className="bg-slate-400 rounded-full h-48 w-48 flex items-center justify-center">
@@ -88,9 +89,7 @@ export default function home() {
         </div>
         <div className="button-container flex justify-center my-10">
           <Link to="/about">
-            <button className="bg-red-400 p-5 rounded-md">
-              View More Stories
-            </button>
+            <Button text="View More Stories" size="lg" color="red" />
           </Link>
         </div>
       </div>
