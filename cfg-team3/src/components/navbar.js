@@ -9,8 +9,9 @@ export default function Navbar() {
   const [burger, setBurger] = useState(false);
 
   const handleBurger = () => {
-    setBurger(!burger);
-  };
+    setBurger(prev => !prev);
+};
+
 
   const navItems = [
     { id: 1, text: "Home", path: "/" },
@@ -39,7 +40,7 @@ export default function Navbar() {
           {navItems.map((item) => (
             <li key={item.id}>
               <Link
-                className="p-3 rounded-md hover:bg-teal hover:scale-125 mx-2 cursor-pointer duration-300"
+                className="p-3 rounded-md hover:bg-rose-300 hover:scale-125 mx-2 cursor-pointer duration-300"
                 to={item.path}
               >
                 {item.text}
@@ -48,39 +49,34 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Mobile */}
-        <div onClick={handleBurger} className="block md:hidden">
-          {burger ? (
-            <img
-              src={burgerSVG}
-              width="20"
-              height="20"
-              alt="burger-menu-close"
-            />
-          ) : (
-            <img
-              src={burgerSVG}
-              width="20"
-              height="20"
-              alt="burger-menu-open"
-            />
-          )}
+         {/* Mobile Burger Menu */}
+         <div onClick={handleBurger} className="block md:hidden">
+          <img
+            src={burgerSVG}
+            width="20"
+            height="20"
+            alt={burger ? "Close menu" : "Open menu"}
+          />
         </div>
       </div>
-      <div className={burger ? "burger is-open" : "burger"}>
-        <ul className={"md:hidden overflow-hidden flex flex-col bg-white"}>
-        {navItems.map((item) => (
-            <li key={item.id}>
-              <Link
-                className="p-3 rounded-md hover:bg-teal hover:text-white mx-2 cursor-pointer duration-300"
-                to={item.path}
-              >
-                {item.text}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+
+      {/* Mobile Menu */}
+      {burger && (
+  <div className="md:hidden overflow-hidden flex flex-col bg-white">
+    <ul className="flex flex-col items-center w-full"> {/* Centering items */}
+      {navItems.map((item) => (
+        <li key={item.id} className="w-full text-center"> {/* Full width and center text */}
+          <Link
+            className="p-3 rounded-md hover:bg-teal flex items-center justify-center cursor-pointer duration-300 w-full" 
+            to={item.path}
+          >
+            {item.text}
+          </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </nav>
   );
 }
