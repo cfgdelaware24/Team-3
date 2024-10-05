@@ -2,6 +2,8 @@
 
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import logoImage from "../images/HeartintheGameLogo.png"
+import burgerSVG from "../images/burger-menu.svg"
 
 export default function Navbar() {
   const [burger, setBurger] = useState(false);
@@ -22,11 +24,11 @@ export default function Navbar() {
     <nav>
       <div className="relative flex items-center justify-between px-12 py-4 bg-white border-b border-grey">
         {/* Desktop */}
-        <Link href="/">
+        <Link to="/">
           <img
             id="heart-in-the-game-logo"
             priority
-            src={"/images/HeartintheGameLogo.png"}
+            src={logoImage}
             width="100"
             height="100"
             alt="Heart in the Game Logo"
@@ -35,13 +37,14 @@ export default function Navbar() {
 
         <ul className="hidden md:flex">
           {navItems.map((item) => (
-            <Link
-              key={item.id}
-              className="p-3 rounded-md hover:bg-teal hover:text-white mx-2 cursor-pointer duration-300"
-              href={item.path}
-            >
-              {item.text}
-            </Link>
+            <li key={item.id}>
+              <Link
+                className="p-3 rounded-md hover:bg-teal hover:scale-125 mx-2 cursor-pointer duration-300"
+                to={item.path}
+              >
+                {item.text}
+              </Link>
+            </li>
           ))}
         </ul>
 
@@ -49,14 +52,14 @@ export default function Navbar() {
         <div onClick={handleBurger} className="block md:hidden">
           {burger ? (
             <img
-              src={"/images/x.svg"}
+              src={burgerSVG}
               width="20"
               height="20"
               alt="burger-menu-close"
             />
           ) : (
             <img
-              src={"/images/burger-menu.svg"}
+              src={burgerSVG}
               width="20"
               height="20"
               alt="burger-menu-open"
@@ -66,14 +69,15 @@ export default function Navbar() {
       </div>
       <div className={burger ? "burger is-open" : "burger"}>
         <ul className={"md:hidden overflow-hidden flex flex-col bg-white"}>
-          {navItems.map((item) => (
-            <Link
-              key={item.id}
-              className="p-3 hover:bg-teal hover:text-white border-b border-grey cursor-pointer"
-              href={item.path}
-            >
-              {item.text}
-            </Link>
+        {navItems.map((item) => (
+            <li key={item.id}>
+              <Link
+                className="p-3 rounded-md hover:bg-teal hover:text-white mx-2 cursor-pointer duration-300"
+                to={item.path}
+              >
+                {item.text}
+              </Link>
+            </li>
           ))}
         </ul>
       </div>
