@@ -6,15 +6,25 @@
     margin-top: 200px;
     margin-right: 50px;
 }
-
 .name-input
 {
-    margin-top: 200px;
+    margin-top: 20px;
     width: 250px;
     height: 50px;
-    border: 1px solid rgb(253 164 175);;
+    border: 1px solid rgb(253 164 175);
     padding-left: 10px;
-    background-color: #f4f4f4; 
+    background-color: #f4f4f4;
+}
+
+.Lname-input
+{
+    margin-top: 20px;
+    margin-left: 40px;
+    width: 250px;
+    height: 50px;
+    border: 1px solid rgb(253 164 175);
+    padding-left: 10px;
+    background-color: #f4f4f4;
 }
 
 .email-input
@@ -22,9 +32,9 @@
     margin-top: 20px;
     width: 540px;
     height: 50px;
-    border: 1px solid rgb(253 164 175);;
+    border: 1px solid rgb(253 164 175);
     padding-left: 10px;
-    background-color: #f4f4f4; 
+    background-color: #f4f4f4;
 }
 
 .message-input
@@ -32,7 +42,15 @@
     margin-top: 20px;
     width: 540px;
     height: 150px;
-    border: 1px solid rgb(253 164 175);;
+    border: 1px solid rgb(253 164 175);
     padding-left: 10px;
-    background-color: #f4f4f4; 
+    background-color: #f4f4f4;
+}
+
+/* Media Query for mobile screens */
+@media (max-width: 768px) {
+  .name-input, .email-input, .message-input,.Lname-input{
+    width: 100%; /* Make inputs full width on mobile */
+    margin-left: 0;
+  }
 }
