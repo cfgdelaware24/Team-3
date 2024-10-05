@@ -4,6 +4,7 @@ import Navbar from "../components/navbar";
 export default function Events() {
   const ScheduledEvents = [
     {
+      id: "sandflkadns",
       name: "Wilmington Charter School",
       location: "100 N Dupont Rd, Wilmington, DE 19807",
       sponsor: "JP Morgan",
@@ -12,6 +13,7 @@ export default function Events() {
       ekg: 4,
     },
     {
+      id: "asdf",
       name: "Tower Hill High School",
       location: "2813 W 17th St, Wilmington, DE 19806",
       sponsor: "Chase",
@@ -20,6 +22,7 @@ export default function Events() {
       ekg: 5,
     },
     {
+      id: "gadsgas",
       name: "Dover Middle School",
       location: "1 Dover High Dr, Dover, DE 19904",
       sponsor: "Sponsor 3",

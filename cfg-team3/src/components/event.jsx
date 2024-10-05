@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Button from "../components/button";
 
 export default function Event({ event }) {
@@ -10,15 +11,17 @@ export default function Event({ event }) {
           <div className="font-light text-lg">
             Volunteers: {event.volunteersCount}
           </div>
+          <div className="font-light text-lg">EKGs: {event.ekg}</div>
           <div className="font-light text-lg">
             Sponsored by: {event.sponsor}
           </div>
-          <div className="font-light text-lg">EKGs: {event.ekg}</div>
         </div>
         <div className="text-right flex flex-col items-end">
           <div className="font-light text-3xl">{event.dateTime}</div>
           <div className="font-light text-lg">{event.phone}</div>
-          <Button href="/" text="Register" size="xs" color="red" />
+          <Link to="/event-registration" state={event}>
+            <Button text="Register" size="xs" color="red" />
+          </Link>
         </div>
       </div>
     </div>
