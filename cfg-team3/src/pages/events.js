@@ -37,7 +37,8 @@ export default function Events() {
           <div className="text-3xl font-semibold py-4">Scheduled Events</div>
           <div className="flex flex-col flex-wrap justify-center ">
             {ScheduledEvents.map((event, idx) => {
-              return <Event key={idx} event={event} />;
+              return <Event key={idx} event={event
+              } status="not-registered" />;
             })}
           </div>
           <div className="text-3xl font-semibold py-4">
