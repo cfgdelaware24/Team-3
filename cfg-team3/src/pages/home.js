@@ -1,0 +1,108 @@
+import React from "react";
+import lifelineIcon from "../images/lifelineIcon.svg";
+import SchoolImg from "../images/schoolExample.svg";
+import Navbar from "../components/navbar";
+import { Link } from "react-router-dom";
+import StudentImg from "../images/zachExample.svg";
+import Button from "../components/button";
+import Mailing from "../components/mailing";
+import Student2Img from "../images/joeExample.svg";
+import Footer from "../components/footer";
+import { motion } from "framer-motion";
+
+export default function home() {
+  return (
+    <>
+      <Navbar />
+      <div className="bg-black w-full section">
+        <div className="flex container mx-auto items-center text-center md:text-left w-full text-white p-20 gap-10 md:px-28">
+          <div className="hero-left flex flex-col gap-5 items-center md:items-start">
+            <p className="text-2xl">
+              Sudden Cardiac Arrest is the #1 cause of death for student
+              athletes.
+            </p>
+            <p className="text-5xl">Save a life.</p>
+            <div className="button-container flex flex-col max-w-xs text-xl gap-5">
+              <Link to="/events">
+                <Button text="Register for an Event" size="md" color="red" />
+              </Link>
+              <Link to="/donate">
+                <Button text="Donate" size="md" color="black" />
+              </Link>
+            </div>
+          </div>
+          <div className="hero-right hidden md:block">
+            <img src={lifelineIcon} alt="" />
+          </div>
+        </div>
+      </div>
+      <div className="text-black w-full section">
+        <div className="flex container mx-auto items-center text-center md:text-left justify-center p-5 md:px-28 gap-10">
+          <div className="hero-left my-10 hidden md:block">
+            <img src={SchoolImg} alt="" />
+          </div>
+          <div className="hero-right flex flex-col gap-5 w-1/2">
+            <p className="text-5xl">It starts with you.</p>
+            <p>
+              One in 300 youth has an undetected heart condition that puts them
+              at risk for SCA. By providing screenings, we aim to improve
+              survival from sudden cardiac arrest by educating the community on
+              the importance and simplicity of bystander CPR.
+            </p>
+            <div className="button-container flex md:justify-between justify-center gap-5 text-xl">
+              <Link className="w-full text-white" to="/about">
+                <Button text="More Info" size="lg" color="red" />
+              </Link>
+              <Link className="w-full" to="/volunteer">
+                <Button text="Volunteer Signup" size="lg" color="black" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="text-black w-full section mt-10">
+        <div className="flex justify-center items-center gap-20 flex-wrap">
+          <div className="flex flex-col items-center">
+            <motion.div
+              initial={{ scale: 1 }}
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 300, damping: 15 }}
+            >
+              <div className="rounded-full h-48 w-48 flex items-center justify-center">
+                <img className="rounded-full" src={Student2Img} alt="" />
+              </div>
+            </motion.div>
+            <p className="mt-5 text-center max-w-xs">
+              15 year old Joseph Till says EKG "Honestly saved my life" after
+              confirming an underlying condition
+            </p>
+          </div>
+          <div className="flex flex-col items-center">
+            <motion.div
+              initial={{ scale: 1 }}
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 300, damping: 15 }}
+            >
+              <div className="rounded-full h-48 w-48 flex items-center justify-center">
+                <img className="rounded-full" src={StudentImg} alt="" />
+              </div>
+            </motion.div>
+            <p className="mt-5 text-center max-w-xs">
+              A free non evasive EKG took less than 15 minutes and kept Zach
+              from possibly being a statistic
+            </p>
+          </div>
+        </div>
+        <div className="button-container flex justify-center my-10">
+          <Link className="text-white" to="/about">
+            <Button text="View More Stories" size="lg" color="red" />
+          </Link>
+        </div>
+      </div>
+      <div className="w-full section flex justify-center pb-[100px]">
+        <Mailing />
+      </div>
+      <Footer />
+    </>
+  );
+}
