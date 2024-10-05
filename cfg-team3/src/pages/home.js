@@ -1,8 +1,8 @@
 import React from "react";
 import lifelineIcon from "../images/lifelineIcon.svg";
-import HomeBtn from "../components/HomeBtn";
+import HomeBtn from "../components/homeBtn";
 
-export default function Home() {
+export default function home() {
   return (
     <>
       {/* Navbar */}
