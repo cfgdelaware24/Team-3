@@ -12,6 +12,7 @@ import Footer from "../components/footer.js";
 function About() {
   const [isOpenSponsor, setIsOpenSponsor] = useState(false);
   const [isOpenImpact, setIsOpenImpact] = useState(false);
+  const [isOpenStats, setIsOpenStats] = useState(false);
 
   // Drop down for words from our sponsor under Grace Firestone Act
   const toggleSponsor = () => {
@@ -21,6 +22,11 @@ function About() {
   // Drop down for our impact under Grace Firestone Act
   const toggleImpact = () => {
     setIsOpenImpact(!isOpenImpact);
+  };
+
+  // Drop down for our impact under Grace Firestone Act
+  const toggleStats = () => {
+    setIsOpenStats(!isOpenStats);
   };
 
   return (
@@ -243,6 +249,39 @@ function About() {
             who would wish information for your legislators, please connect with
             me! This is a wonderfully collaborative bill, molded by all the
             statewide stakeholders AND budget neutral.
+          </p>
+        </div>
+      )}
+
+
+
+        <h3 className="dropdown-title" onClick={toggleStats}>
+        Statistics Behind SCA
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          className={`bi bi-caret-down-fill ml-1 ${
+            isOpenSponsor ? "rotate-180" : ""
+          }`}
+        >
+          <path d="M4.5 6.5L8 10l3.5-3.5H4.5z" />
+        </svg>
+        </h3>
+        {isOpenStats && (
+            <div className="dropdown-content">
+            <p className="paragraph-separation">
+            SCA is a leading cause of death in the United States, taking the lives of over 350,000 people per year in the United States. 
+            Nearly 90% of out-of-hospital cardiac arrests are fatal.
+          </p>
+          <p className="paragraph-separation">
+          Survival rates are lower for African American than non-African American populations.
+        Most sudden cardiac deaths occur in individuals without a history of heart disease and importantly, with relatively normal function
+          </p>
+          <p className="paragraph-separation">
+          Sports-related, sudden deaths are more frequent in elite than other student-athletes, with an incidence of 1:8,253 per year per the National Collegiate Athletic Association (NCAA). 
+          NCAA Division I male basketball players have a 1:5200 incidence of sudden death.
           </p>
         </div>
       )}
