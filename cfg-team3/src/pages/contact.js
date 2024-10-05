@@ -20,7 +20,8 @@ function Contact() {
   return (
     <div>
       <Navbar />
-      <div className='MainText px-4 md:px-10 lg:px-20 py-6'>
+      <div className='MainText flex flex-col md:flex-row px-4 md:px-10 lg:px-20 py-6'>
+
         <div className='Text max-w-2xl mx-auto'>
           <h1 className='text-4xl md:text-6xl mb-5 font-bold'>We're Here to Help</h1>
           <p className='text-lg md:text-2xl mb-5'>
@@ -29,8 +30,9 @@ function Contact() {
           <p className='text-lg md:text-xl font-bold'>greer@heartinthegame.org</p>
           <p className='text-lg md:text-xl font-bold'>302.494.3133</p>
         </div>
+
         {/* Input Fields */}
-        <div className="mt-8">
+        <div className="mt-[150px]">
           <input 
             placeholder="First Name" 
             className="name-input mb-4 w-full rounded-2xl p-3 border border-gray-300" 
@@ -39,7 +41,7 @@ function Contact() {
           />
           <input 
             placeholder="Last Name" 
-            className="name-input mb-4 w-full rounded-2xl p-3 border border-gray-300" 
+            className="Lname-input mb-4 w-full rounded-2xl p-3 border border-gray-300" 
             value={lastName} 
             onChange={handleInputChange(setLastName)} 
           />
