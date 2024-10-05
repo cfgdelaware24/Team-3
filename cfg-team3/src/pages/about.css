@@ -6,15 +6,20 @@ h2 {
     font-size: 24px;
 }
 
+h3 {
+    font-size: 20px;
+}
+
 #pageTitle {
     text-align: center;
     margin: 1% 0%;
 }
 
-.founders {
+#founders {
     background-color: #F88181;
     display: flex;
     flex-direction: row;
+    padding: 10px;
 }
 
 .parentHeartWatch {
@@ -22,15 +27,54 @@ h2 {
     padding: 2%;
 }
 
+/* Aligns items horizontally */
 .horizontalBundle {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
+/* Aligns items vertically */
 .verticalBundle {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+}
+
+/* Aligns dropdown title with arrow */
+.dropdown-title {
+    cursor: pointer;
+    padding: 5px;
+    padding-left: 20px;
+    border-radius: 5px;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* Rotates dropdown arrow when selected */
+.rotate-180 {
+    transform: rotate(180deg);
+    transition: transform 0.2s ease;
+}
+  
+/* Aligns dropdown content when showing */
+.dropdown-content {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.graceFirestone {
+    margin: 10px;
+}
+
+/* Adds separation between paragraph sections */
+.paragraph-separation {
+    margin-bottom: 10px;
 }

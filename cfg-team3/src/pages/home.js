@@ -1,19 +1,20 @@
 import React from "react";
 import lifelineIcon from "../images/lifelineIcon.svg";
-import HomeBtn from "../components/homeBtn";
 import SchoolImg from "../images/schoolExample.svg";
 import Navbar from "../components/navbar";
 import { Link } from "react-router-dom";
 import StudentImg from "../images/zachExample.svg";
 import Button from "../components/button";
+import Mailing from "../components/mailing";
+import Student2Img from "../images/joeExample.svg";
 
 export default function home() {
   return (
     <>
       <Navbar />
       <div className="bg-black w-full section">
-        <div className="flex container mx-auto items-center w-full text-white p-20 gap-10 px-28">
-          <div className="hero-left flex flex-col gap-5">
+        <div className="flex container mx-auto items-center text-center md:text-left w-full text-white p-20 gap-10 md:px-28">
+          <div className="hero-left flex flex-col gap-5 items-center md:items-start">
             <p className="text-2xl">
               Sudden Cardiac Arrest is the #1 cause of death for student
               athletes.
@@ -28,14 +29,14 @@ export default function home() {
               </Link>
             </div>
           </div>
-          <div className="hero-right">
+          <div className="hero-right hidden md:block">
             <img src={lifelineIcon} alt="" />
           </div>
         </div>
       </div>
       <div className="text-black w-full section">
-        <div className="flex container mx-auto items-center p-5 px-28 gap-10">
-          <div className="hero-left my-10">
+        <div className="flex container mx-auto items-center text-center md:text-left justify-center p-5 md:px-28 gap-10">
+          <div className="hero-left my-10 hidden md:block">
             <img src={SchoolImg} alt="" />
           </div>
           <div className="hero-right flex flex-col gap-5 w-1/2">
@@ -46,7 +47,7 @@ export default function home() {
               survival from sudden cardiac arrest by educating the community on
               the importance and simplicity of bystander CPR.
             </p>
-            <div className="button-container flex justify-between gap-5 text-xl">
+            <div className="button-container flex md:justify-between justify-center gap-5 text-xl">
               <Link className="w-full" to="/about">
                 <Button text="More Info" size="lg" color="red" />
               </Link>
@@ -61,27 +62,18 @@ export default function home() {
         <div className="flex justify-center items-center gap-20 flex-wrap">
           <div className="flex flex-col items-center">
             <div className="bg-slate-400 rounded-full h-48 w-48 flex items-center justify-center">
-              <img className="rounded-full" src={StudentImg} alt="" />
+              <img className="rounded-full" src={Student2Img} alt="" />
             </div>
-            <p className="mt-2 text-center max-w-xs">
-              A free non evasive EKG took less than 15 minutes and kept Zach
-              from possibly being a statistic
+            <p className="mt-5 text-center max-w-xs">
+              15 year old Joseph Till says EKG "Honestly saved my life" after
+              confirming an underlying condition
             </p>
           </div>
           <div className="flex flex-col items-center">
             <div className="bg-slate-400 rounded-full h-48 w-48 flex items-center justify-center">
               <img className="rounded-full" src={StudentImg} alt="" />
             </div>
-            <p className="mt-2 text-center max-w-xs">
-              A free non evasive EKG took less than 15 minutes and kept Zach
-              from possibly being a statistic
-            </p>
-          </div>
-          <div className="flex flex-col items-center">
-            <div className="bg-slate-400 rounded-full h-48 w-48 flex items-center justify-center">
-              <img className="rounded-full" src={StudentImg} alt="" />
-            </div>
-            <p className="mt-2 text-center max-w-xs">
+            <p className="mt-5 text-center max-w-xs">
               A free non evasive EKG took less than 15 minutes and kept Zach
               from possibly being a statistic
             </p>
@@ -92,6 +84,9 @@ export default function home() {
             <Button text="View More Stories" size="lg" color="red" />
           </Link>
         </div>
+      </div>
+      <div className="w-full section flex justify-center">
+        <Mailing />
       </div>
     </>
   );
