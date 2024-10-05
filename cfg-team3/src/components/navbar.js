@@ -22,7 +22,7 @@ export default function Navbar() {
     <nav>
       <div className="relative flex items-center justify-between px-12 py-4 bg-white border-b border-grey">
         {/* Desktop */}
-        <Link href="/">
+        <Link to="/">
           <img
             id="heart-in-the-game-logo"
             priority
@@ -35,13 +35,14 @@ export default function Navbar() {
 
         <ul className="hidden md:flex">
           {navItems.map((item) => (
-            <Link
-              key={item.id}
-              className="p-3 rounded-md hover:bg-teal hover:text-white mx-2 cursor-pointer duration-300"
-              href={item.path}
-            >
-              {item.text}
-            </Link>
+            <li key={item.id}>
+              <Link
+                className="p-3 rounded-md hover:bg-teal hover:text-white mx-2 cursor-pointer duration-300"
+                to={item.path}
+              >
+                {item.text}
+              </Link>
+            </li>
           ))}
         </ul>
 
@@ -66,14 +67,15 @@ export default function Navbar() {
       </div>
       <div className={burger ? "burger is-open" : "burger"}>
         <ul className={"md:hidden overflow-hidden flex flex-col bg-white"}>
-          {navItems.map((item) => (
-            <Link
-              key={item.id}
-              className="p-3 hover:bg-teal hover:text-white border-b border-grey cursor-pointer"
-              href={item.path}
-            >
-              {item.text}
-            </Link>
+        {navItems.map((item) => (
+            <li key={item.id}>
+              <Link
+                className="p-3 rounded-md hover:bg-teal hover:text-white mx-2 cursor-pointer duration-300"
+                to={item.path}
+              >
+                {item.text}
+              </Link>
+            </li>
           ))}
         </ul>
       </div>
