@@ -18,8 +18,9 @@ export default function Navbar() {
     { id: 3, text: "Contact", path: "/contact" },
     { id: 4, text: "Profile", path: "/profile" },
     { id: 5, text: "Education", path: "/education" },
+    { id: 6, text: "Meet the Developers", path: "/biography" },
     { 
-      id: 6, 
+      id: 7, 
       text: "Donate", 
       path: "https://www.heartinthegame.org/checkout/donate?donatePageId=652c1c06b0199d1c5ae4026a", 
       external: true // An external link
