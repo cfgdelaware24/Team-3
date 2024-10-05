@@ -1,5 +1,6 @@
 import Button from "./button";
 import { Link } from "react-router-dom";
+import Progress from "./progress";
 
 export default function Event({ event, status }) {
   return (
@@ -43,6 +44,13 @@ export default function Event({ event, status }) {
           )}
         </div>
       </div>
+      {status === "not-registered" && (
+        <Progress
+          current={event.participants}
+          total={150}
+          text="Participants"
+        />
+      )}
     </div>
   );
 }
