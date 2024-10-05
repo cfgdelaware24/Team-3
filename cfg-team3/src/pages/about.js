@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import "./about.css";
+import ArticleCard from './articles/articleCard.js';
 import Navbar from "../components/navbar";
 import Greer from "../images/Greer.jpg";
 import Drezner from "../images/drezner.png";
 import PHW from "../images/ParentHeartWatch2.png";
 import Button from "../components/button";
+import articles from "./articles/articles.js";
 
 function About() {
   const [isOpenSponsor, setIsOpenSponsor] = useState(false);
@@ -23,7 +25,7 @@ function About() {
   return (
     <div>
       <Navbar></Navbar>
-      <h1 id="pageTitle">About Heart in the Game</h1>
+      <h1 className="pageTitle">About Heart in the Game</h1>
 
       {/* Founder title, photo, and bio */}
       <div id="founders">
@@ -54,10 +56,10 @@ function About() {
 
       {/* Link and info about Parent Heart Watch */}
       <div className="parentHeartWatch">
-        <h2>Parent Heart Watch (PHW)</h2>
 
         <div className="horizontalBundle">
           <div className="verticalBundle w-1/3">
+            <h2>Parent Heart Watch (PHW)</h2>
             <p className="text-center">
               PHW leads and empowers others by sharing information, educating 
               and advocating for change.
@@ -128,6 +130,17 @@ function About() {
             <p className="paragraph-separation">At the signing of The Grace Firestone Act is the 9th such bill in the nation. As of November of 2105 there were ONLY NINE states with similar legislation. THAT IS RIDICULOUS.For those from other states who would wish information for your legislators, please connect with me! This is a wonderfully collaborative bill, molded by all the statewide stakeholders AND budget neutral.</p>
           </div>
         )}
+
+        <div id="articles">
+          <h2 className="pageTitle">Articles</h2>
+          <div id="articleCards">
+            {articles.map((article, index) => (
+              <div>
+                <ArticleCard key = {index} article={article} />
+              </div>
+            ))}
+          </div>
+        </div>
     </div>
   );
 }
