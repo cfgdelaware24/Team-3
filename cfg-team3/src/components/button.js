@@ -19,13 +19,13 @@ export default function Button(props) {
   return (
     <motion.div
       initial={{ scale: 1 }}
-      whileHover={{ scale: 1.05 }}
-      transition={{ type: "spring", stiffness: 400, damping: 13 }}
+      whileHover={{ scale: 1.025 }}
+      transition={{ type: "spring", stiffness: 300, damping: 15 }}
       className={"w-full " + size[props.size]}
     >
       <a
         href={props.href}
-        className={"flex rounded-xl transition " + color[props.color]}
+        className={"flex rounded-sm transition " + color[props.color]}
       >
         <button
           className={
