@@ -1,9 +1,9 @@
 "use client";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { useState } from "react";
-import logoImage from "../images/HeartintheGameLogo.png"
-import burgerSVG from "../images/burger-menu.svg"
+import logoImage from "../images/HeartintheGameLogo.png";
+import burgerSVG from "../images/burger-menu.svg";
 
 export default function Navbar() {
   const [burger, setBurger] = useState(false);
