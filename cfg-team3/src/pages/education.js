@@ -27,7 +27,7 @@ export default function Courses() {
     <>
       <Navbar />
       <div className="bg-slate-100">
-        <div className=" max-w-screen-md mx-auto">
+        <div className=" max-w-screen-md mx-auto pb-[200px]">
           <div className="text-3xl font-semibold py-4">Courses</div>
           <div className="flex flex-col flex-wrap justify-center ">
             {CoursesInProgress.map((course, idx) => {
