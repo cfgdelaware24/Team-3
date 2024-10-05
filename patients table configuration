@@ -1,0 +1,18 @@
+db.runCommand({
+   collMod: "patients",
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: ["patientId", "name", "email", "phone", "eventsAttending", "age"],
+         properties: {
+            patientId: { bsonType: "string" },
+            name: { bsonType: "string" },
+            email: { bsonType: "string" },
+            phone: { bsonType: "string" },
+            eventsAttending: { bsonType: "array", items: { bsonType: "string" } },
+            age: { bsonType: "int" }
+         }
+      }
+   },
+   validationLevel: "strict"
+});
