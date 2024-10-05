@@ -8,6 +8,7 @@ function Contact() {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [result, setResult] = useState(''); // State to show form submission status
 
   // Handle input changes
   const handleInputChange = (setter) => (event) => {
@@ -16,6 +17,37 @@ function Contact() {
 
   // Check if all fields are filled
   const isFormValid = firstName && lastName && email && message;
+
+  // Handle form submission with Web3Forms API
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent form from submitting the default way
+    setResult("Sending...");
+
+    const formData = new FormData();
+    formData.append("access_key", "41161567-b3e0-4a2d-bdef-b761df036523"); // Use your Web3Forms API key
+    formData.append("name", `${firstName} ${lastName}`);
+    formData.append("email", email);
+    formData.append("message", message);
+
+    // Make the API request
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      event.target.reset(); // Reset form fields after successful submission
+      setFirstName('');
+      setLastName('');
+      setEmail('');
+      setMessage('');
+    } else {
+      setResult(`Error: ${data.message}`);
+    }
+  };
 
   return (
     <div>
@@ -32,24 +64,27 @@ function Contact() {
         </div>
 
         {/* Input Fields */}
-        <div className="mt-[150px]">
-          <input 
-            placeholder="First Name" 
-            className="name-input mb-4 w-full p-3 border border-gray-300" 
-            value={firstName} 
-            onChange={handleInputChange(setFirstName)} 
+        <form onSubmit={handleSubmit} className="mt-8"> {/* Submit handled by Web3Forms */}
+          <input
+            placeholder="First Name"
+            className="name-input mb-4 w-full rounded-2xl p-3 border border-gray-300"
+            value={firstName}
+            onChange={handleInputChange(setFirstName)}
+            required
           />
-          <input 
-            placeholder="Last Name" 
-            className="Lname-input mb-4 w-full p-3 border border-gray-300" 
-            value={lastName} 
-            onChange={handleInputChange(setLastName)} 
+          <input
+            placeholder="Last Name"
+            className="name-input mb-4 w-full rounded-2xl p-3 border border-gray-300"
+            value={lastName}
+            onChange={handleInputChange(setLastName)}
+            required
           />
-          <input 
-            placeholder="Email" 
-            className="email-input mb-4 w-full  p-3 border border-gray-300" 
-            value={email} 
-            onChange={handleInputChange(setEmail)} 
+          <input
+            placeholder="Email"
+            className="email-input mb-4 w-full rounded-2xl p-3 border border-gray-300"
+            value={email}
+            onChange={handleInputChange(setEmail)}
+            required
           />
           <textarea
             placeholder="Message" 
@@ -57,13 +92,15 @@ function Contact() {
             value={message} 
             onChange={handleInputChange(setMessage)} 
           />
-          <Button 
-            text="Submit" 
-            size="xs" 
-            color="red" 
+          <Button
+            text="Submit"
+            size="xs"
+            color="red"
             disabled={!isFormValid} // Disable if form is not valid
           />
-        </div>
+        </form>
+        {/* Show result message after submission */}
+        <p className="text-lg mt-4">{result}</p>
       </div>
     </div>
   );
