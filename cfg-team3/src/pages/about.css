@@ -92,11 +92,7 @@ h3 {
     margin-bottom: 10px;
 }
 
-#articles {
-    padding: 2% 0%;
-}
-
-#articleCards {
+.articleCards {
     display: flex;
     flex-direction: column;
 }
