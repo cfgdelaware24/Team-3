@@ -10,6 +10,7 @@ export default function EventRegistration() {
   const location = useLocation();
   const event = location.state; // Assuming event object is passed from previous page
 
+  const [registrationType, setRegistrationType] = useState("Patient");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -60,7 +61,7 @@ export default function EventRegistration() {
   };
 
   // Check if all fields are filled
-  const isFormValid = firstName && lastName && email && phone && age;
+  const isFormValid = firstName && lastName && email && phone && age && registrationType;
 
   return (
     <>
@@ -69,6 +70,16 @@ export default function EventRegistration() {
         <div className="max-w-screen-md mx-auto px-4 pt-4 pb-[200px]">
           <Event event={event} status="in-progress" />
           <form className="flex flex-col gap-4 mt-8" onSubmit={handleSubmit}>
+            <select
+              id="registration-type"
+              name="registration-type"
+              class="p-3 w-full border border-gray-300 rounded"
+              onChange={handleInputChange(setRegistrationType)}
+              required
+            >
+              <option>Patient</option>
+              <option>Volunteer</option>
+            </select>
             <div className="flex gap-4 sm:flex-row flex-col">
               <input
                 className="p-3 w-full border border-gray-300 rounded"
@@ -78,6 +89,7 @@ export default function EventRegistration() {
                 placeholder="First Name"
                 value={firstName}
                 onChange={handleInputChange(setFirstName)}
+                required
               />
               <input
                 className="p-3 w-full border border-gray-300 rounded"
@@ -87,6 +99,7 @@ export default function EventRegistration() {
                 placeholder="Last Name"
                 value={lastName}
                 onChange={handleInputChange(setLastName)}
+                required
               />
             </div>
             <input
@@ -97,6 +110,7 @@ export default function EventRegistration() {
               placeholder="Email"
               value={email}
               onChange={handleInputChange(setEmail)}
+              required
             />
             <input
               className="p-3 w-full border border-gray-300 rounded"
@@ -106,6 +120,7 @@ export default function EventRegistration() {
               placeholder="Phone Number"
               value={phone}
               onChange={handleInputChange(setPhone)}
+              required
             />
             <input
               className="p-3 w-full border border-gray-300 rounded"
@@ -115,6 +130,7 @@ export default function EventRegistration() {
               placeholder="Age"
               value={age}
               onChange={handleInputChange(setAge)}
+              required
             />
             <input type="hidden" id="idx" value={event.id || ""} />
             <div className="text-white">
