@@ -1,0 +1,40 @@
+body {
+  font-family: 'Comic Sans MS';
+}
+
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+#pageTitle {
+    text-align: center;
+    margin: 1% 0%;
+}
+
+.founders {
+    background-color: #F88181;
+    display: flex;
+    flex-direction: row;
+}
+
+.parentHeartWatch {
+    background-color: #F6E7D3;
+    padding: 2%;
+}
+
+.horizontalBundle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.verticalBundle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
