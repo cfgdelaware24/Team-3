@@ -73,7 +73,7 @@ function About() {
           <div className="w-96">
             <img src={PHW} alt="Parent Heart Watch" />
           </div>
-          <div className="flex flex-col justify-around max-w-60 p-4">
+          <div className="flex flex-col justify-between max-w-60 p-4">
             <h2>Parent Heart Watch (PHW)</h2>
             <p>
               PHW leads and empowers others by sharing information, educating
@@ -256,41 +256,68 @@ function About() {
         </div>
       )}
 
-        <h3 className="dropdown-title" onClick={toggleStats}>
-        Statistics Behind SCA
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          className={`bi bi-caret-down-fill ml-1 ${
-            isOpenSponsor ? "rotate-180" : ""
-          }`}
-        >
-          <path d="M4.5 6.5L8 10l3.5-3.5H4.5z" />
-        </svg>
-        </h3>
-        {isOpenStats && (
-            <div className="dropdown-content">
-            <p className="paragraph-separation">
-            SCA is a leading cause of death in the United States, taking the lives of over 350,000 people per year in the United States. 
-            Nearly 90% of out-of-hospital cardiac arrests are fatal.
-          </p>
-          <p className="paragraph-separation">
-          Survival rates are lower for African American than non-African American populations.
-        Most sudden cardiac deaths occur in individuals without a history of heart disease and importantly, with relatively normal function
-          </p>
-          <p className="paragraph-separation">
-          Sports-related, sudden deaths are more frequent in elite than other student-athletes, with an incidence of 1:8,253 per year per the National Collegiate Athletic Association (NCAA). 
-          NCAA Division I male basketball players have a 1:5200 incidence of sudden death.
-          </p>
-        </div>
-      )}
-
+      {/* Info and statistics section for sudden cardiac arrest*/}
       <div className="bg-rose-300">
         <h2 className="text-1xl font-semibold py-4 text-center">Sudden Cardiac Arrest (SCA) Facts</h2>
+
+        {/* Heart Attack VS SCA comparison boxes */}
+        <div id="heartAttackVSsca">
+          <div className="infoBox">
+            <h2>HEART ATTACK</h2>
+            <p className="p-4">
+              A heart attack occurs when a blocked artery prevents oxygen-rich blood from reaching a section of the heart. 
+              If the blocked artery is not reopened quickly, the part of the heart normally nourished by that artery begins to die. 
+              The longer a person goes without treatment, the greater the damage. Symptoms of a heart attack may be immediate and intense. 
+              More often, though, symptoms start slowly and persist for hours, days or weeks before a heart attack. 
+              Unlike with sudden cardiac arrest, the heart usually does not stop beating during a heart attack. 
+              The heart attack symptoms in women can be different than men. 
+            </p>
+          </div>
+          <div className="infoBox">
+            <h2>SCA</h2>
+            <p className="p-4">
+              Sudden cardiac arrest occurs suddenly and often without warning. 
+              It is triggered by an electrical malfunction in the heart that causes an irregular heartbeat (arrhythmia). 
+              With its pumping action disrupted, the heart cannot pump blood to the brain, lungs and other organs. 
+              Seconds later, a person loses consciousness and has no pulse. Death occurs within minutes if the victim does not receive treatment. 
+            </p>
+          </div>
+        </div>
+
+        {/* Statistics behind SCA dropdown */}
+        <h3 className="dropdown-title" onClick={toggleStats}>
+          Statistics Behind SCA
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            className={`bi bi-caret-down-fill ml-1 ${
+              isOpenSponsor ? "rotate-180" : ""
+            }`}
+          >
+            <path d="M4.5 6.5L8 10l3.5-3.5H4.5z" />
+          </svg>
+          </h3>
+          {isOpenStats && (
+            <div className="dropdown-content-pink">
+              <p className="paragraph-separation">
+              SCA is a leading cause of death in the United States, taking the lives of over 350,000 people per year in the United States. 
+              Nearly 90% of out-of-hospital cardiac arrests are fatal.
+              </p>
+              <p className="paragraph-separation">
+              Survival rates are lower for African American than non-African American populations.
+              Most sudden cardiac deaths occur in individuals without a history of heart disease and importantly, with relatively normal function
+              </p>
+              <p className="paragraph-separation">
+              Sports-related, sudden deaths are more frequent in elite than other student-athletes, with an incidence of 1:8,253 per year per the National Collegiate Athletic Association (NCAA). 
+              NCAA Division I male basketball players have a 1:5200 incidence of sudden death.
+              </p>
+            </div>
+          )}
       </div>
 
+      {/* Card views for available press */}
       <div>
         <h2 className="text-1xl font-semibold py-4 text-center">Articles</h2>
         <div id="articleCards">

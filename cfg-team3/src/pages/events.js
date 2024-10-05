@@ -32,6 +32,8 @@ export default function Events() {
     fetchEvents();
   }, []);
 
+  const [submitted, setSubmitted] = useState(false);
+
   // Handle input changes
   const handleInputChange = (setter) => (event) => {
     setter(event.target.value);
@@ -48,6 +50,10 @@ export default function Events() {
         location,
       });
       console.log("Event request successfully submitted!");
+      setSubmitted(true);
+      setFirstName("");
+      setLastName("");
+      setLocation("");
     } catch (error) {
       console.error("Error submitting event request: ", error);
     }
@@ -108,6 +114,9 @@ export default function Events() {
               onChange={handleInputChange(setLocation)}
             />
             <div className="text-white">
+              {submitted && (
+                <p className="text-green-500">Form submitted successfully!</p>
+              )}
               <Button
                 text="Submit"
                 size="xs"
