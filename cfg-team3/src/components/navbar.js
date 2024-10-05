@@ -14,11 +14,12 @@ export default function Navbar() {
 
 
   const navItems = [
-    { id: 1, text: "Home", path: "/" },
-    { id: 2, text: "About", path: "/about" },
-    { id: 3, text: "Events", path: "/events" },
-    { id: 4, text: "Contact", path: "/contact" },
-    { id: 5, text: "Profile", path: "/profile" },
+    { id: 1, text: "About", path: "/about" },
+    { id: 2, text: "Events", path: "/events" },
+    { id: 3, text: "Contact", path: "/contact" },
+    { id: 4, text: "Profile", path: "/profile" },
+    { id: 5, text: "Donate", path: "/donate" },
+   
   ];
 
   return (
