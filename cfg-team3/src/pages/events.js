@@ -1,6 +1,8 @@
 import Event from "../components/event";
 import Navbar from "../components/navbar";
 
+import "./contact.css"
+
 export default function Events() {
   const ScheduledEvents = [
     {
@@ -37,13 +39,13 @@ export default function Events() {
       <Navbar />
       <div className="bg-slate-100">
         <div className=" max-w-screen-md mx-auto">
-          <div className="text-3xl font-semibold py-4">Scheduled Events</div>
-          <div className="flex flex-col flex-wrap justify-center ">
+          <div className="text-3xl font-semibold pb-4 pt-8 text-center">Scheduled Events</div>
+          <div className="flex flex-col flex-wrap justify-center">
             {ScheduledEvents.map((event, idx) => {
-              return <Event key={idx} event={event} />;
+              return <Event key={idx} event={event} status="not-registered"/>;
             })}
           </div>
-          <div className="text-3xl font-semibold py-4">
+          <div className="text-3xl font-semibold py-4 text-center">
             Want an Event in Your Area?
           </div>
           <form action="event" method="post">
