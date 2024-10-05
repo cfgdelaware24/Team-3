@@ -4,6 +4,7 @@ import Navbar from "../components/navbar";
 
 export default function Courses() {
   const CoursesInProgress = [
+    //Sample courses with course name, instructor, # modules left, the next upcoming lesson 
     {
       CourseName: "Recognizing Sudden Cardiac Arrest: Signs and Symptoms",
       Instructor: "Heart in the Game",
