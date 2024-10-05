@@ -1,31 +1,41 @@
-import Event from "../components/event";
+import Course from "../components/course";
 import Navbar from "../components/navbar";
 
-export default function Events() {
-  const ScheduledEvents = [
+export default function Courses() {
+  const CoursesInProgress = [
     {
-      name: "Wilmington Charter School",
-      location: "100 N Dupont Rd, Wilmington, DE 19807",
-      sponsor: "JP Morgan",
-      dateTime: "10/24/2024 5:00PM",
-      volunteersCount: 4,
-      ekg: 4,
+      CourseName: "Recognizing Sudden Cardiac Arrest: Signs and Symptoms",
+      Instructor: "Heart in the Game",
+      ModulesLeft: "5",
+      NextLesson: "Understanding the Difference Between Heart Attack and Sudden Cardiac Arrest",
     },
     {
-      name: "Tower Hill High School",
-      location: "2813 W 17th St, Wilmington, DE 19806",
-      sponsor: "Chase",
-      dateTime: "11/14/2024 5:00PM",
-      volunteersCount: 5,
-      ekg: 5,
+      CourseName: "CPR Basics: Your First Line of Defense",
+      Instructor: "American Red Cross",
+      ModulesLeft: "3",
+      NextLesson: "Hands-Only CPR Technique",
     },
     {
-      name: "Dover Middle School",
-      location: "1 Dover High Dr, Dover, DE 19904",
-      sponsor: "Sponsor 3",
-      dateTime: "12/2/2024 5:00PM",
-      volunteersCount: 3,
-      ekg: 6,
+      CourseName: "AED Essentials: Using Automated External Defibrillators",
+      Instructor: "American Red Cross",
+      ModulesLeft: "2",
+      NextLesson: "AED Pad Placement",
     },
   ];
+
+  return (
+    <>
+      <Navbar />
+      <div className="bg-slate-100">
+        <div className=" max-w-screen-md mx-auto">
+          <div className="text-3xl font-semibold py-4">Courses</div>
+          <div className="flex flex-col flex-wrap justify-center ">
+            {CoursesInProgress.map((course, idx) => {
+              return <Course key={idx} course={course} />;
+            })}
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
