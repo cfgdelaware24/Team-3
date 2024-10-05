@@ -64,27 +64,24 @@ function Contact() {
         </div>
 
         {/* Input Fields */}
-        <form onSubmit={handleSubmit} className="mt-8"> {/* Submit handled by Web3Forms */}
-          <input
-            placeholder="First Name"
-            className="name-input mb-4 w-full rounded-2xl p-3 border border-gray-300"
-            value={firstName}
-            onChange={handleInputChange(setFirstName)}
-            required
+        <div className="mt-[150px]">
+          <input 
+            placeholder="First Name" 
+            className="name-input mb-4 w-full p-3 border border-gray-300" 
+            value={firstName} 
+            onChange={handleInputChange(setFirstName)} 
           />
-          <input
-            placeholder="Last Name"
-            className="name-input mb-4 w-full rounded-2xl p-3 border border-gray-300"
-            value={lastName}
-            onChange={handleInputChange(setLastName)}
-            required
+          <input 
+            placeholder="Last Name" 
+            className="Lname-input mb-4 w-full p-3 border border-gray-300" 
+            value={lastName} 
+            onChange={handleInputChange(setLastName)} 
           />
-          <input
-            placeholder="Email"
-            className="email-input mb-4 w-full rounded-2xl p-3 border border-gray-300"
-            value={email}
-            onChange={handleInputChange(setEmail)}
-            required
+          <input 
+            placeholder="Email" 
+            className="email-input mb-4 w-full  p-3 border border-gray-300" 
+            value={email} 
+            onChange={handleInputChange(setEmail)} 
           />
           <textarea
             placeholder="Message" 
@@ -92,18 +89,17 @@ function Contact() {
             value={message} 
             onChange={handleInputChange(setMessage)} 
           />
-          <Button
-            text="Submit"
-            size="xs"
-            color="red"
+          <Button 
+            text="Submit" 
+            size="xs" 
+            color="red" 
             disabled={!isFormValid} // Disable if form is not valid
           />
-        </form>
-        {/* Show result message after submission */}
-        <p className="text-lg mt-4">{result}</p>
+        </div>
       </div>
     </div>
   );
 }
+
 
 export default Contact;
