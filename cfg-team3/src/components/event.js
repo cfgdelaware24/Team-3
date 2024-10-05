@@ -9,16 +9,16 @@ export default function Event({ event, status }) {
           <div className="font-medium text-3xl">{event.name}</div>
           <div className="font-light text-lg">{event.location}</div>
           <div className="font-light text-lg">
-            Volunteers: {event.volunteersCount}
+            Volunteers: {event.volunteers}
           </div>
-          <div className="font-light text-lg">EKGs: {event.ekg}</div>
+          <div className="font-light text-lg">EKGs: {event.ekgs}</div>
           <div className="font-light text-lg">
             Sponsored by: {event.sponsor}
           </div>
         </div>
         <div className="md:text-right gap-2 flex mt-4 md:mt-0 md:flex-col md:items-end items-center justify-between">
           <div className="font-light text-2xl md:text-3xl">
-            {event.dateTime}
+            {event.datetime}
           </div>
           <div className="font-light text-lg">{event.phone}</div>
           {status === "not-registered" && (
