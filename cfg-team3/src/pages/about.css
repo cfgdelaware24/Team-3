@@ -57,8 +57,3 @@ h3 {
     display: flex;
     flex-direction: column;
 }
-
-#articles {
-    background-color: #F88181;
-    align-self: center;
-}
