@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
+import { Link } from 'react-router-dom';
 import { useState } from "react";
 
 export default function Navbar() {
@@ -14,10 +13,9 @@ export default function Navbar() {
   const navItems = [
     { id: 1, text: "Home", path: "/" },
     { id: 2, text: "About", path: "/about" },
-    { id: 3, text: "Team", path: "/team" },
-    { id: 4, text: "Support", path: "/support" },
-    { id: 5, text: "Apply", path: "/apply" },
-    { id: 6, text: "Contact", path: "/contact" },
+    { id: 3, text: "Events", path: "/events" },
+    { id: 4, text: "Contact", path: "/contact" },
+    { id: 5, text: "Profile", path: "/profile" },
   ];
 
   return (
@@ -25,13 +23,13 @@ export default function Navbar() {
       <div className="relative flex items-center justify-between px-12 py-4 bg-white border-b border-grey">
         {/* Desktop */}
         <Link href="/">
-          <Image
-            id="nexus-logo"
+          <img
+            id="heart-in-the-game-logo"
             priority
-            src={"/nexus-logo.svg"}
+            src={"/images/HeartintheGameLogo.png"}
             width="100"
             height="100"
-            alt="Nexus Logo"
+            alt="Heart in the Game Logo"
           />
         </Link>
 
@@ -50,15 +48,15 @@ export default function Navbar() {
         {/* Mobile */}
         <div onClick={handleBurger} className="block md:hidden">
           {burger ? (
-            <Image
-              src={"x.svg"}
+            <img
+              src={"/images/x.svg"}
               width="20"
               height="20"
               alt="burger-menu-close"
             />
           ) : (
-            <Image
-              src={"burger-menu.svg"}
+            <img
+              src={"/images/burger-menu.svg"}
               width="20"
               height="20"
               alt="burger-menu-open"
