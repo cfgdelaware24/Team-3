@@ -1,6 +1,8 @@
 import Event from "../components/event";
 import Navbar from "../components/navbar";
 import Button from "../components/button";
+import { firestore } from "../firebase"; // Import Firestore instance
+import { doc, setDoc } from "@firebase/firestore"; // Import the needed functions
 import { useState } from "react";
 
 import "./contact.css";
@@ -14,6 +16,22 @@ export default function Events() {
   // Handle input changes
   const handleInputChange = (setter) => (event) => {
     setter(event.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
+
+    try {
+      // Create a document in Firestore
+      await setDoc(doc(firestore, "EventRequests", location), {
+        firstName,
+        lastName,
+        location,
+      });
+      console.log("Event request successfully submitted!");
+    } catch (error) {
+      console.error("Error submitting event request: ", error);
+    }
   };
 
   // Check if all fields are filled
@@ -69,6 +87,7 @@ export default function Events() {
             className="mx-auto pb-[200px] flex flex-col gap-4"
             action="event"
             method="post"
+            onSubmit={handleSubmit}
           >
             <div className="flex gap-4 sm:flex-row flex-col">
               <input

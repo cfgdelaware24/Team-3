@@ -40,7 +40,6 @@ function Contact() {
 
     if (data.success) {
       setResult("Form Submitted Successfully");
-      event.target.reset(); // Reset form fields after successful submission
       setFirstName('');
       setLastName('');
       setEmail('');
@@ -66,44 +65,45 @@ function Contact() {
 
         {/* Input Fields */}
         <div className="mt-[150px]">
-          <input 
-            placeholder="First Name" 
-            className="name-input mb-4 w-full p-3 border border-gray-300" 
-            value={firstName} 
-            onChange={handleInputChange(setFirstName)} 
-          />
-          <input 
-            placeholder="Last Name" 
-            className="Lname-input mb-4 w-full p-3 border border-gray-300" 
-            value={lastName} 
-            onChange={handleInputChange(setLastName)} 
-          />
-          <input 
-            placeholder="Email" 
-            className="email-input mb-4 w-full  p-3 border border-gray-300" 
-            value={email} 
-            onChange={handleInputChange(setEmail)} 
-          />
-          <textarea
-            placeholder="Message" 
-            className="message-input mb-4 w-full p-3 border border-gray-300 h-32 resize-none" 
-            value={message} 
-            onChange={handleInputChange(setMessage)} 
-          />
-          <Button 
-            text="Submit" 
-            size="xs" 
-            color="red" 
-            disabled={!isFormValid} // Disable if form is not valid
-          />
+          <form onSubmit={handleSubmit}>
+            <input 
+              placeholder="First Name" 
+              className="name-input mb-4 w-full p-3 border border-gray-300" 
+              value={firstName} 
+              onChange={handleInputChange(setFirstName)} 
+            />
+            <input 
+              placeholder="Last Name" 
+              className="Lname-input mb-4 w-full p-3 border border-gray-300" 
+              value={lastName} 
+              onChange={handleInputChange(setLastName)} 
+            />
+            <input 
+              placeholder="Email" 
+              className="email-input mb-4 w-full  p-3 border border-gray-300" 
+              value={email} 
+              onChange={handleInputChange(setEmail)} 
+            />
+            <textarea
+              placeholder="Message" 
+              className="message-input mb-4 w-full p-3 border border-gray-300 h-32 resize-none" 
+              value={message} 
+              onChange={handleInputChange(setMessage)} 
+            />
+            <Button 
+              text="Submit" 
+              size="xs" 
+              color="red" 
+              disabled={!isFormValid} // Disable if form is not valid
+              onClick={handleSubmit} // Trigger form submission on click
+            />
+          </form>
+          {result && <p className="mt-4">{result}</p>}
         </div>
       </div>
-      <Footer></Footer>
+      <Footer />
     </div>
-    
-    
   );
 }
-
 
 export default Contact;
