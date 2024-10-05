@@ -1,4 +1,5 @@
-import Button from "../components/button";
+import Button from "./button";
+import { Link } from "react-router-dom";
 
 export default function Event({ event }) {
   return (
@@ -18,7 +19,9 @@ export default function Event({ event }) {
         <div className="text-right flex flex-col items-end">
           <div className="font-light text-3xl">{event.dateTime}</div>
           <div className="font-light text-lg">{event.phone}</div>
-          <Button href="/" text="Register" size="xs" color="red" />
+          <Link to="/event-registration">
+            <Button text="Register" size="xs" color="red" />
+          </Link>
         </div>
       </div>
     </div>
