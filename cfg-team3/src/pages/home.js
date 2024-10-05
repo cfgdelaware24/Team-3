@@ -49,7 +49,7 @@ export default function home() {
               the importance and simplicity of bystander CPR.
             </p>
             <div className="button-container flex md:justify-between justify-center gap-5 text-xl">
-              <Link className="w-full" to="/about">
+              <Link className="w-full text-white" to="/about">
                 <Button text="More Info" size="lg" color="red" />
               </Link>
               <Link className="w-full" to="/volunteer">
@@ -81,12 +81,12 @@ export default function home() {
           </div>
         </div>
         <div className="button-container flex justify-center my-10">
-          <Link to="/about">
+          <Link className="text-white" to="/about">
             <Button text="View More Stories" size="lg" color="red" />
           </Link>
         </div>
       </div>
-      <div className="w-full section flex justify-center">
+      <div className="w-full section flex justify-center pb-[100px]">
         <Mailing />
       </div>
       <Footer /> 
