@@ -41,8 +41,9 @@ export default function EventRegistration() {
       });
 
       await updateDoc(eventRef, {
-        participants: increment(1),
+        participants: increment(registrationType === "Participant" ? 1 : 0),
         users: arrayUnion(email),
+        volunteers: increment(registrationType === "Volunteer" ? 1 : 0),
       });
 
       console.log(

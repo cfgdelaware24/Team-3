@@ -11,11 +11,21 @@ import PHW from "../images/ParentHeartWatch2.png";
 import Button from "../components/button";
 import articles from "./articles/articles.js";
 import stories from "./stories/stories.js";
+import Grace1 from "../images/Grace1.jpg";
+import Grace2 from "../images/Grace2.jpg";
+import Grace3 from "../images/Grace3.jpg";
+import Grace4 from "../images/Grace4.jpg";
 
 function About() {
+  const [isOpenGrace, setIsOpenGrace] = useState(false);
   const [isOpenSponsor, setIsOpenSponsor] = useState(false);
   const [isOpenImpact, setIsOpenImpact] = useState(false);
   const [isOpenStats, setIsOpenStats] = useState(false);
+
+  // Drop down for Grace's Story under Grace Firestone Act
+  const toggleGrace = () => {
+    setIsOpenGrace(!isOpenGrace);
+  }
 
   // Drop down for words from our sponsor under Grace Firestone Act
   const toggleSponsor = () => {
@@ -153,6 +163,87 @@ function About() {
           use of an automated external defibrillator.
         </p>
       </div>
+      
+      {/* Dropdown section for Grace's Story */}
+      <h3 className="dropdown-title" onClick={toggleGrace}>
+        Grace's Story
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          className={`bi bi-caret-down-fill ml-1 ${
+            isOpenSponsor ? "rotate-180" : ""
+          }`}
+        >
+          <path d="M4.5 6.5L8 10l3.5-3.5H4.5z" />
+        </svg>
+      </h3>
+      {isOpenGrace && (
+        <div className="dropdown-content">
+          <p className="paragraph-separation">
+            Gracie Firestone, Tower Hill 2011, Survivor of Sudden Cardiac Arrest Grace Firestone, Tower Hill School, 2011, was selected as a 
+            2012 recipient of the “National High School Spirit of Sport Award” by the National Federation of State High School Associations (NFHS). 
+            The National High School Spirit of Sport Award was created to recognize those individuals who exemplify the ideals of the spirit 
+            of sport that represent the core mission of education-based athletics. Grace - one of eight recipients from across the country - 
+            was the winner of Section 2, which includes DE, Washington D.C, KY, MD, Ohio, PA, VA and WVA. Additionally, in November of 2012, 
+            she was honored with the Youth in Philanthropy Award by the Brandywine Chapter of the Association of Fundraising Professionals. 
+            An elite high school athlete, Grace earned 15 varsity letters and garnered All-state honors in all of her three sports, including 
+            1st Team All State soccer for 3 years. She was a 6-time sports captain and maintained a 3.93 GPA. She was student body president 
+            her senior year. She created a number of community service projects while in high school, including “Let the Kids Play,” which 
+            later would raise thousands of dollars for her adopted orphanage in Kenya.
+          </p>
+          <div className="graceImages">
+            <img src={Grace1} alt="Grace" width="10%" height="10%" className="mx-4"/>
+            <img src={Grace2} alt="Grace" width="10%" height="10%" className="mx-4"/>
+          </div>
+          <p className="paragraph-separation">
+            On June 6, 2011, just two days after graduating from Tower Hill, Grace went to her mother’s room to say that she wasn’t feeling well. 
+            Seconds later she collapsed on the bed. Her heart stopped. Her mother immediately called 911. Her brother Grant administered CPR during 
+            the three minutes before the New Castle County (DE) EMS arrived. NCC Policeman Officer Justison was first on the scene, directing the 
+            incoming emergency personnel. (Officer Justison was later to visit Gracie in the hospital several times. The EMS team visited as well.)
+          </p>
+          <p className="paragraph-separation">
+            Grace was paddled 6 times. The EMS team drilled into her shin (interosseous) to provide quicker IV access to the brain. 
+            Her heart stopped three times that night. On the way to Christiana Hospital she stopped breathing. 
+          </p>
+          <p className="paragraph-separation">
+            An hour later, in an ER room, a doctor gets on his knee in front of Gracie's family. "There's a good chance we will lose her".  
+            Gracie was put on a ventilator and an induced coma. 
+          </p>
+          <p className="paragraph-separation">
+            Ten days later Grace left Christiana with an implanted defibrillator (ICD). No permanent damage. She began walking and working out.  
+            She entered U of Delaware Honors in September 2011.  The doctor who implanted the defib/pacemaker warned again engaging in contact 
+            sports.  But these were the sports in which she thrived in high school. Gracie decided to live her own life.
+          </p>
+          <p className="paragraph-separation">
+            After a few months of physical and cognitive rehabilitation, she felt more than ever that she needed to help others. 
+            “Once I realized I was OK, I was frustrated with people telling me I wasn’t OK,” she says. “That gave me the inspiration to do 
+            something drastic to show I was physically and mentally able.” 
+          </p>
+          <p className="paragraph-separation">
+            With the aid of US Sen Chris Coons and wife Annie, Grace created a fund raiser collecting $8,000.00 which eventually went to her 
+            adopted orphanage in Kenya. On Christmas Day 2012, Gracie left for Africa. She climbed Mt. Kilimanjaro. While in Africa, Grace 
+            visited the orphanage and played soccer with the kids.
+          </p>
+          <p className="paragraph-separation">
+            At U of Delaware, she has played center mid position for UD Club Soccer. The team went to the national club soccer finals all 4 years.
+          </p>
+          <p className="paragraph-separation">
+            Through the efforts of Gracie, State Sens. Cathy Cloutier, Bethany Hall-Long and Kevin Charles of the DIAA (DE Interscholastic 
+            Athletic Assoc.), the Grace Firestone SCA Awareness Act was passed in 2014.
+          </p>
+          <p className="paragraph-separation">
+            Dr. Grace Firestone is a resident in family care at Stanford Medical Center -  O'Connor Hospital in CA Stanford - O'Connor 
+            Family Medicine Residency. Dr. Firestone graduated from the Sydney Kimmel Medical College of Thomas Jefferson University in 
+            Philadelphia. 
+          </p>
+          <div className="graceImages">
+            <img src={Grace3} alt="Grace" width="10%" height="10%" className="mx-4"/>
+            <img src={Grace4} alt="Grace" width="10%" height="10%" className="mx-4"/>
+          </div>
+        </div>
+      )}
 
       {/* Dropdown section for Sponsor words about Grace Firestone Act */}
       <h3 className="dropdown-title" onClick={toggleSponsor}>
