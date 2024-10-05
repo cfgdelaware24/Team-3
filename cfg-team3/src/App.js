@@ -9,6 +9,7 @@ import Courses from "./pages/education.js";
 import Biography from "./pages/biography.js";
 import { HashRouter, Route, Routes } from "react-router-dom";
 
+// This is all of the apps Routes using the Hash Router
 function App() {
   return (
     <HashRouter>
