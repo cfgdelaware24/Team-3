@@ -44,7 +44,7 @@ export default function EventDetail() {
           <div className="w-full md:w-1/4 p-4">
             <div className="bg-white p-4 rounded-lg shadow-md">
               <img
-                src="https://via.placeholder.com/150"
+                src={MyIcon}
                 alt="Profile"
                 className="rounded-full w-32 h-32 mx-auto"
               />
