@@ -14,6 +14,18 @@ export default function Course({ course }) {
           <div className="font-light text-lg">
             Next Lesson: {course.NextLesson}
           </div>
+          <div className="mt-4">
+            <div className="font-light text-lg mb-1">
+              Progress: {course.Progress}%
+            </div>
+            <progress 
+              value={course.Progress} 
+              max="100" 
+              className="w-full h-2 [&::-webkit-progress-bar]:bg-gray-200 [&::-webkit-progress-value]:bg-red-500 [&::-moz-progress-bar]:bg-red-500"
+            >
+              {course.Progress}%
+            </progress>
+          </div>
         </div>
         <div className="text-right flex flex-col items-end">
           <Link className="text-white" to="/event-registration">
