@@ -23,6 +23,7 @@ export default function Navbar() {
       path: "https://www.heartinthegame.org/checkout/donate?donatePageId=652c1c06b0199d1c5ae4026a", 
       external: true // An external link
     },
+    { id: 6, text: "Education", path: "/education" },
   ];
 
   return (
