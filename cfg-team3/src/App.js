@@ -1,11 +1,14 @@
 import "./App.css";
-import Home from "./pages/Home";
+import About from "./pages/about.js";
+import { HashRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div>
-      <Home />
-    </div>
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<About />} />
+      </Routes>
+    </HashRouter>
   );
 }
 
