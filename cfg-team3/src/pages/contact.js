@@ -35,25 +35,25 @@ function Contact() {
         <div className="mt-[150px]">
           <input 
             placeholder="First Name" 
-            className="name-input mb-4 w-full rounded-2xl p-3 border border-gray-300" 
+            className="name-input mb-4 w-full p-3 border border-gray-300" 
             value={firstName} 
             onChange={handleInputChange(setFirstName)} 
           />
           <input 
             placeholder="Last Name" 
-            className="Lname-input mb-4 w-full rounded-2xl p-3 border border-gray-300" 
+            className="Lname-input mb-4 w-full p-3 border border-gray-300" 
             value={lastName} 
             onChange={handleInputChange(setLastName)} 
           />
           <input 
             placeholder="Email" 
-            className="email-input mb-4 w-full rounded-2xl p-3 border border-gray-300" 
+            className="email-input mb-4 w-full  p-3 border border-gray-300" 
             value={email} 
             onChange={handleInputChange(setEmail)} 
           />
           <input 
             placeholder="Message" 
-            className="message-input mb-4 w-full rounded-2xl p-3 border border-gray-300" 
+            className="message-input mb-4 w-full p-3 border border-gray-300" 
             value={message} 
             onChange={handleInputChange(setMessage)} 
           />
